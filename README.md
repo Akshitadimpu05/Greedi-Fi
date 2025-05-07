@@ -2,7 +2,7 @@
 
 ## 📌 Project Description
 
-**EdgeTrade** is a full-stack, high-performance crypto derivatives trading platform built in C++ and modern web technologies. It enables automated, manual, and algorithmic trading on **testnet environments**, offering institutional-grade functionality. The platform supports placing/modifying/canceling orders, real-time order book visualization, position monitoring, and trade analytics. Engineered with low-latency trading logic and robust API communication, it replicates real-world trading systems used by professional firms.
+**Greedi-Fi** is a full-stack, high-performance crypto derivatives trading platform built in C++ and modern web technologies. It enables automated, manual, and algorithmic trading on **testnet environments**, offering institutional-grade functionality. The platform supports placing/modifying/canceling orders, real-time order book visualization, position monitoring, and trade analytics. Engineered with low-latency trading logic and robust API communication, it replicates real-world trading systems used by professional firms.
 
 A sleek web frontend integrates with the backend to provide real-time UI for traders, with live updates powered by WebSockets and historical insights visualized via interactive charts. Built with scalability and modularity in mind, EdgeTrade is deployable as a standalone app or extendable to support multiple crypto derivatives exchanges.
 
