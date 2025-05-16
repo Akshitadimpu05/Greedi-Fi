@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  # FastAPI Backend Service
+  api:
+    build: ./backend/api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/api:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - greedi-fi-network
+    restart: unless-stopped
+
+  # C++ Strategy Engine
+  strategy-engine:
+    build: ./backend/cpp
+    networks:
+      - greedi-fi-network
+    restart: unless-stopped
+    # In a production environment, you would connect the C++ engine with the API
+    # through appropriate IPC mechanisms like Redis, ZeroMQ, or gRPC
+
+  # React Frontend Service
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+    networks:
+      - greedi-fi-network
+    restart: unless-stopped
+
+networks:
+  greedi-fi-network:
+    driver: bridge
