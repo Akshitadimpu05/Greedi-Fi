@@ -117,29 +117,27 @@ void MarketDataFeed::setTradeCallback(TradeCallback callback) {
 }
 
 bool MarketDataFeed::initWebSocketContext() {
+    static struct lws_protocols protocols[] = {
+        {
+            "market-data",
+            MarketDataFeed::ws_callback,
+            sizeof(PerSessionData),
+            65536,
+        },
+        { nullptr, nullptr, 0, 0 } /* terminator */
+    };
+    
     lws_context_creation_info info;
     memset(&info, 0, sizeof(info));
     
     info.port = CONTEXT_PORT_NO_LISTEN;
-    info.protocols = new lws_protocols[2];
-    
-    // Setup protocols
-    info.protocols[0].name = "market-data";
-    info.protocols[0].callback = MarketDataFeed::ws_callback;
-    info.protocols[0].per_session_data_size = sizeof(PerSessionData);
-    info.protocols[0].rx_buffer_size = 65536;
-    
-    // Null terminating protocol
-    info.protocols[1].name = nullptr;
-    info.protocols[1].callback = nullptr;
-    info.protocols[1].per_session_data_size = 0;
+    info.protocols = protocols;
     
     info.options = LWS_SERVER_OPTION_DO_SSL_GLOBAL_INIT;
     info.gid = -1;
     info.uid = -1;
     
     context_ = lws_create_context(&info);
-    delete[] info.protocols;
     
     if (!context_) {
         std::cerr << "Failed to create WebSocket context" << std::endl;
@@ -171,7 +169,7 @@ bool MarketDataFeed::initWebSocketContext() {
 }
 
 int MarketDataFeed::ws_callback(struct lws* wsi, enum lws_callback_reasons reason,
-                               void* user, void* in, size_t len) {
+                                void* user, void* in, size_t len) {
     PerSessionData* pss = static_cast<PerSessionData*>(user);
     
     switch (reason) {

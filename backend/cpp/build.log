@@ -1,0 +1,1321 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.77kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/gcc:11
+#2 ...
+
+#3 [internal] load metadata for docker.io/library/debian:bullseye-slim
+#3 DONE 2.1s
+
+#2 [internal] load metadata for docker.io/library/gcc:11
+#2 DONE 2.1s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [builder 1/7] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
+#5 CACHED
+
+#6 [stage-1 1/8] FROM docker.io/library/debian:bullseye-slim@sha256:fdd75562fdcde1039c2480a1ea1cd2cf03b18b6e4cb551cabb03bde66ade8a5d
+#6 CACHED
+
+#7 [internal] load build context
+#7 transferring context: 672B done
+#7 DONE 0.0s
+
+#8 [stage-1 2/8] RUN apt-get update && apt-get install -y     libboost-system1.74.0     libcurl4     libssl1.1     libwebsockets16     && rm -rf /var/lib/apt/lists/*
+#8 0.281 Get:1 http://deb.debian.org/debian bullseye InRelease [116 kB]
+#8 1.264 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.2 kB]
+#8 1.392 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.1 kB]
+#8 1.465 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#8 6.055 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [364 kB]
+#8 6.243 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#8 6.787 Fetched 8636 kB in 7s (1301 kB/s)
+#8 6.787 Reading package lists...
+#8 7.143 Reading package lists...
+#8 7.504 Building dependency tree...
+#8 7.597 Reading state information...
+#8 7.686 libssl1.1 is already the newest version (1.1.1w-0+deb11u2).
+#8 7.686 libssl1.1 set to manually installed.
+#8 7.686 The following additional packages will be installed:
+#8 7.686   ca-certificates libbrotli1 libcap2 libev4 libldap-2.4-2 libldap-common
+#8 7.687   libnghttp2-14 libpsl5 librtmp1 libsasl2-2 libsasl2-modules
+#8 7.687   libsasl2-modules-db libssh2-1 libuv1 openssl publicsuffix
+#8 7.687 Suggested packages:
+#8 7.687   libsasl2-modules-gssapi-mit | libsasl2-modules-gssapi-heimdal
+#8 7.687   libsasl2-modules-ldap libsasl2-modules-otp libsasl2-modules-sql
+#8 7.755 The following NEW packages will be installed:
+#8 7.755   ca-certificates libboost-system1.74.0 libbrotli1 libcap2 libcurl4 libev4
+#8 7.755   libldap-2.4-2 libldap-common libnghttp2-14 libpsl5 librtmp1 libsasl2-2
+#8 7.755   libsasl2-modules libsasl2-modules-db libssh2-1 libuv1 libwebsockets16
+#8 7.755   openssl publicsuffix
+#8 7.857 0 upgraded, 19 newly installed, 0 to remove and 2 not upgraded.
+#8 7.857 Need to get 3356 kB of archives.
+#8 7.857 After this operation, 8868 kB of additional disk space will be used.
+#8 7.857 Get:1 http://deb.debian.org/debian-security bullseye-security/main amd64 openssl amd64 1.1.1w-0+deb11u2 [859 kB]
+#8 10.00 Get:2 http://deb.debian.org/debian bullseye/main amd64 ca-certificates all 20210119 [158 kB]
+#8 ...
+
+#9 [builder 2/7] RUN apt-get update && apt-get install -y     cmake     libboost-system-dev     libboost-filesystem-dev     libboost-program-options-dev     libboost-thread-dev     libboost-date-time-dev     libboost-test-dev     libssl-dev     libcurl4-openssl-dev     libwebsockets-dev     pkg-config     nlohmann-json3-dev     && rm -rf /var/lib/apt/lists/*
+#9 0.521 Get:1 http://deb.debian.org/debian bullseye InRelease [116 kB]
+#9 1.020 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.2 kB]
+#9 1.221 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.1 kB]
+#9 1.268 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#9 ...
+
+#8 [stage-1 2/8] RUN apt-get update && apt-get install -y     libboost-system1.74.0     libcurl4     libssl1.1     libwebsockets16     && rm -rf /var/lib/apt/lists/*
+#8 10.29 Get:3 http://deb.debian.org/debian bullseye/main amd64 libboost-system1.74.0 amd64 1.74.0-9 [241 kB]
+#8 10.78 Get:4 http://deb.debian.org/debian bullseye/main amd64 libbrotli1 amd64 1.0.9-2+b2 [279 kB]
+#8 11.60 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 libcap2 amd64 1:2.44-1+deb11u1 [24.2 kB]
+#8 11.77 Get:6 http://deb.debian.org/debian bullseye/main amd64 libsasl2-modules-db amd64 2.1.27+dfsg-2.1+deb11u1 [69.1 kB]
+#8 11.83 Get:7 http://deb.debian.org/debian bullseye/main amd64 libsasl2-2 amd64 2.1.27+dfsg-2.1+deb11u1 [106 kB]
+#8 12.10 Get:8 http://deb.debian.org/debian bullseye/main amd64 libldap-2.4-2 amd64 2.4.57+dfsg-3+deb11u1 [232 kB]
+#8 13.01 Get:9 http://deb.debian.org/debian-security bullseye-security/main amd64 libnghttp2-14 amd64 1.43.0-1+deb11u2 [77.0 kB]
+#8 13.07 Get:10 http://deb.debian.org/debian bullseye/main amd64 libpsl5 amd64 0.21.0-1.2 [57.3 kB]
+#8 13.09 Get:11 http://deb.debian.org/debian bullseye/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+#8 13.30 Get:12 http://deb.debian.org/debian bullseye/main amd64 libssh2-1 amd64 1.9.0-2+deb11u1 [156 kB]
+#8 13.41 Get:13 http://deb.debian.org/debian-security bullseye-security/main amd64 libcurl4 amd64 7.74.0-1.3+deb11u14 [348 kB]
+#8 13.53 Get:14 http://deb.debian.org/debian bullseye/main amd64 libev4 amd64 1:4.33-1 [43.2 kB]
+#8 13.54 Get:15 http://deb.debian.org/debian bullseye/main amd64 libldap-common all 2.4.57+dfsg-3+deb11u1 [95.8 kB]
+#8 13.60 Get:16 http://deb.debian.org/debian bullseye/main amd64 libsasl2-modules amd64 2.1.27+dfsg-2.1+deb11u1 [104 kB]
+#8 13.67 Get:17 http://deb.debian.org/debian bullseye/main amd64 libuv1 amd64 1.40.0-2+deb11u1 [132 kB]
+#8 13.75 Get:18 http://deb.debian.org/debian bullseye/main amd64 libwebsockets16 amd64 4.0.20-2 [186 kB]
+#8 13.83 Get:19 http://deb.debian.org/debian bullseye/main amd64 publicsuffix all 20220811.1734-0+deb11u1 [127 kB]
+#8 13.96 debconf: delaying package configuration, since apt-utils is not installed
+#8 13.98 Fetched 3356 kB in 6s (549 kB/s)
+#8 13.99 Selecting previously unselected package openssl.
+#8 13.99 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6673 files and directories currently installed.)
+#8 14.00 Preparing to unpack .../00-openssl_1.1.1w-0+deb11u2_amd64.deb ...
+#8 14.00 Unpacking openssl (1.1.1w-0+deb11u2) ...
+#8 14.07 Selecting previously unselected package ca-certificates.
+#8 14.07 Preparing to unpack .../01-ca-certificates_20210119_all.deb ...
+#8 14.07 Unpacking ca-certificates (20210119) ...
+#8 14.10 Selecting previously unselected package libboost-system1.74.0:amd64.
+#8 14.10 Preparing to unpack .../02-libboost-system1.74.0_1.74.0-9_amd64.deb ...
+#8 14.10 Unpacking libboost-system1.74.0:amd64 (1.74.0-9) ...
+#8 14.14 Selecting previously unselected package libbrotli1:amd64.
+#8 14.14 Preparing to unpack .../03-libbrotli1_1.0.9-2+b2_amd64.deb ...
+#8 14.15 Unpacking libbrotli1:amd64 (1.0.9-2+b2) ...
+#8 14.18 Selecting previously unselected package libcap2:amd64.
+#8 14.19 Preparing to unpack .../04-libcap2_1%3a2.44-1+deb11u1_amd64.deb ...
+#8 14.19 Unpacking libcap2:amd64 (1:2.44-1+deb11u1) ...
+#8 14.21 Selecting previously unselected package libsasl2-modules-db:amd64.
+#8 14.21 Preparing to unpack .../05-libsasl2-modules-db_2.1.27+dfsg-2.1+deb11u1_amd64.deb ...
+#8 14.21 Unpacking libsasl2-modules-db:amd64 (2.1.27+dfsg-2.1+deb11u1) ...
+#8 14.23 Selecting previously unselected package libsasl2-2:amd64.
+#8 14.24 Preparing to unpack .../06-libsasl2-2_2.1.27+dfsg-2.1+deb11u1_amd64.deb ...
+#8 14.24 Unpacking libsasl2-2:amd64 (2.1.27+dfsg-2.1+deb11u1) ...
+#8 14.27 Selecting previously unselected package libldap-2.4-2:amd64.
+#8 14.27 Preparing to unpack .../07-libldap-2.4-2_2.4.57+dfsg-3+deb11u1_amd64.deb ...
+#8 14.27 Unpacking libldap-2.4-2:amd64 (2.4.57+dfsg-3+deb11u1) ...
+#8 14.30 Selecting previously unselected package libnghttp2-14:amd64.
+#8 14.30 Preparing to unpack .../08-libnghttp2-14_1.43.0-1+deb11u2_amd64.deb ...
+#8 14.30 Unpacking libnghttp2-14:amd64 (1.43.0-1+deb11u2) ...
+#8 14.33 Selecting previously unselected package libpsl5:amd64.
+#8 14.33 Preparing to unpack .../09-libpsl5_0.21.0-1.2_amd64.deb ...
+#8 14.33 Unpacking libpsl5:amd64 (0.21.0-1.2) ...
+#8 14.35 Selecting previously unselected package librtmp1:amd64.
+#8 14.35 Preparing to unpack .../10-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
+#8 14.35 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#8 14.38 Selecting previously unselected package libssh2-1:amd64.
+#8 14.38 Preparing to unpack .../11-libssh2-1_1.9.0-2+deb11u1_amd64.deb ...
+#8 14.38 Unpacking libssh2-1:amd64 (1.9.0-2+deb11u1) ...
+#8 14.41 Selecting previously unselected package libcurl4:amd64.
+#8 14.41 Preparing to unpack .../12-libcurl4_7.74.0-1.3+deb11u14_amd64.deb ...
+#8 14.41 Unpacking libcurl4:amd64 (7.74.0-1.3+deb11u14) ...
+#8 14.45 Selecting previously unselected package libev4:amd64.
+#8 14.45 Preparing to unpack .../13-libev4_1%3a4.33-1_amd64.deb ...
+#8 14.45 Unpacking libev4:amd64 (1:4.33-1) ...
+#8 14.47 Selecting previously unselected package libldap-common.
+#8 14.47 Preparing to unpack .../14-libldap-common_2.4.57+dfsg-3+deb11u1_all.deb ...
+#8 14.47 Unpacking libldap-common (2.4.57+dfsg-3+deb11u1) ...
+#8 14.50 Selecting previously unselected package libsasl2-modules:amd64.
+#8 14.50 Preparing to unpack .../15-libsasl2-modules_2.1.27+dfsg-2.1+deb11u1_amd64.deb ...
+#8 14.50 Unpacking libsasl2-modules:amd64 (2.1.27+dfsg-2.1+deb11u1) ...
+#8 14.53 Selecting previously unselected package libuv1:amd64.
+#8 14.53 Preparing to unpack .../16-libuv1_1.40.0-2+deb11u1_amd64.deb ...
+#8 14.53 Unpacking libuv1:amd64 (1.40.0-2+deb11u1) ...
+#8 14.55 Selecting previously unselected package libwebsockets16:amd64.
+#8 14.56 Preparing to unpack .../17-libwebsockets16_4.0.20-2_amd64.deb ...
+#8 14.56 Unpacking libwebsockets16:amd64 (4.0.20-2) ...
+#8 14.58 Selecting previously unselected package publicsuffix.
+#8 14.58 Preparing to unpack .../18-publicsuffix_20220811.1734-0+deb11u1_all.deb ...
+#8 14.59 Unpacking publicsuffix (20220811.1734-0+deb11u1) ...
+#8 14.61 Setting up libboost-system1.74.0:amd64 (1.74.0-9) ...
+#8 14.62 Setting up libpsl5:amd64 (0.21.0-1.2) ...
+#8 14.62 Setting up libev4:amd64 (1:4.33-1) ...
+#8 14.63 Setting up libbrotli1:amd64 (1.0.9-2+b2) ...
+#8 14.63 Setting up libsasl2-modules:amd64 (2.1.27+dfsg-2.1+deb11u1) ...
+#8 14.64 Setting up libnghttp2-14:amd64 (1.43.0-1+deb11u2) ...
+#8 14.64 Setting up libldap-common (2.4.57+dfsg-3+deb11u1) ...
+#8 14.65 Setting up libcap2:amd64 (1:2.44-1+deb11u1) ...
+#8 14.65 Setting up libsasl2-modules-db:amd64 (2.1.27+dfsg-2.1+deb11u1) ...
+#8 14.65 Setting up libuv1:amd64 (1.40.0-2+deb11u1) ...
+#8 14.66 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#8 14.67 Setting up libsasl2-2:amd64 (2.1.27+dfsg-2.1+deb11u1) ...
+#8 14.68 Setting up libssh2-1:amd64 (1.9.0-2+deb11u1) ...
+#8 14.68 Setting up openssl (1.1.1w-0+deb11u2) ...
+#8 14.69 Setting up publicsuffix (20220811.1734-0+deb11u1) ...
+#8 14.69 Setting up libwebsockets16:amd64 (4.0.20-2) ...
+#8 14.70 Setting up libldap-2.4-2:amd64 (2.4.57+dfsg-3+deb11u1) ...
+#8 14.70 Setting up ca-certificates (20210119) ...
+#8 14.78 debconf: unable to initialize frontend: Dialog
+#8 14.78 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#8 14.78 debconf: falling back to frontend: Readline
+#8 14.78 debconf: unable to initialize frontend: Readline
+#8 14.78 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.32.1 /usr/local/share/perl/5.32.1 /usr/lib/x86_64-linux-gnu/perl5/5.32 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.32 /usr/share/perl/5.32 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#8 14.78 debconf: falling back to frontend: Teletype
+#8 15.19 Updating certificates in /etc/ssl/certs...
+#8 15.63 129 added, 0 removed; done.
+#8 15.65 Setting up libcurl4:amd64 (7.74.0-1.3+deb11u14) ...
+#8 15.65 Processing triggers for libc-bin (2.31-13+deb11u11) ...
+#8 15.66 Processing triggers for ca-certificates (20210119) ...
+#8 15.67 Updating certificates in /etc/ssl/certs...
+#8 16.02 0 added, 0 removed; done.
+#8 16.02 Running hooks in /etc/ca-certificates/update.d...
+#8 16.03 done.
+#8 DONE 16.1s
+
+#9 [builder 2/7] RUN apt-get update && apt-get install -y     cmake     libboost-system-dev     libboost-filesystem-dev     libboost-program-options-dev     libboost-thread-dev     libboost-date-time-dev     libboost-test-dev     libssl-dev     libcurl4-openssl-dev     libwebsockets-dev     pkg-config     nlohmann-json3-dev     && rm -rf /var/lib/apt/lists/*
+#9 15.16 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [364 kB]
+#9 15.44 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#9 15.97 Fetched 8636 kB in 16s (546 kB/s)
+#9 15.97 Reading package lists...
+#9 16.36 Reading package lists...
+#9 16.72 Building dependency tree...
+#9 16.82 Reading state information...
+#9 16.92 pkg-config is already the newest version (0.29.2-1).
+#9 16.92 pkg-config set to manually installed.
+#9 16.92 The following additional packages will be installed:
+#9 16.93   cmake-data curl libarchive13 libboost-atomic1.74-dev libboost-atomic1.74.0
+#9 16.93   libboost-chrono1.74-dev libboost-chrono1.74.0 libboost-date-time1.74-dev
+#9 16.93   libboost-date-time1.74.0 libboost-filesystem1.74-dev
+#9 16.93   libboost-filesystem1.74.0 libboost-program-options1.74-dev
+#9 16.93   libboost-program-options1.74.0 libboost-serialization1.74-dev
+#9 16.93   libboost-serialization1.74.0 libboost-system1.74-dev libboost-system1.74.0
+#9 16.93   libboost-test1.74-dev libboost-test1.74.0 libboost-thread1.74-dev
+#9 16.93   libboost-thread1.74.0 libboost1.74-dev libcap-dev libcap2 libcurl4 libev-dev
+#9 16.93   libev4 libjsoncpp24 librhash0 libssl1.1 libuv1 libuv1-dev libwebsockets16
+#9 16.93 Suggested packages:
+#9 16.93   cmake-doc ninja-build lrzip libboost1.74-doc libboost-container1.74-dev
+#9 16.93   libboost-context1.74-dev libboost-contract1.74-dev
+#9 16.93   libboost-coroutine1.74-dev libboost-exception1.74-dev libboost-fiber1.74-dev
+#9 16.93   libboost-graph1.74-dev libboost-graph-parallel1.74-dev
+#9 16.93   libboost-iostreams1.74-dev libboost-locale1.74-dev libboost-log1.74-dev
+#9 16.93   libboost-math1.74-dev libboost-mpi1.74-dev libboost-mpi-python1.74-dev
+#9 16.93   libboost-numpy1.74-dev libboost-python1.74-dev libboost-random1.74-dev
+#9 16.93   libboost-regex1.74-dev libboost-stacktrace1.74-dev libboost-timer1.74-dev
+#9 16.93   libboost-type-erasure1.74-dev libboost-wave1.74-dev libboost1.74-tools-dev
+#9 16.93   libmpfrc++-dev libntl-dev libboost-nowide1.74-dev manpages-dev libcurl4-doc
+#9 16.93   libidn11-dev libldap2-dev librtmp-dev libssh2-1-dev libssl-doc
+#9 17.00 The following NEW packages will be installed:
+#9 17.00   cmake cmake-data libarchive13 libboost-atomic1.74-dev libboost-atomic1.74.0
+#9 17.00   libboost-chrono1.74-dev libboost-chrono1.74.0 libboost-date-time-dev
+#9 17.00   libboost-date-time1.74-dev libboost-date-time1.74.0 libboost-filesystem-dev
+#9 17.00   libboost-filesystem1.74-dev libboost-filesystem1.74.0
+#9 17.00   libboost-program-options-dev libboost-program-options1.74-dev
+#9 17.00   libboost-program-options1.74.0 libboost-serialization1.74-dev
+#9 17.00   libboost-serialization1.74.0 libboost-system-dev libboost-system1.74-dev
+#9 17.00   libboost-system1.74.0 libboost-test-dev libboost-test1.74-dev
+#9 17.00   libboost-test1.74.0 libboost-thread-dev libboost-thread1.74-dev
+#9 17.00   libboost-thread1.74.0 libboost1.74-dev libcap-dev libcap2 libev-dev libev4
+#9 17.00   libjsoncpp24 librhash0 libuv1 libuv1-dev libwebsockets-dev libwebsockets16
+#9 17.00   nlohmann-json3-dev
+#9 17.00 The following packages will be upgraded:
+#9 17.01   curl libcurl4 libcurl4-openssl-dev libssl-dev libssl1.1
+#9 17.14 5 upgraded, 39 newly installed, 0 to remove and 93 not upgraded.
+#9 17.14 Need to get 29.3 MB of archives.
+#9 17.14 After this operation, 248 MB of additional disk space will be used.
+#9 17.14 Get:1 http://deb.debian.org/debian-security bullseye-security/main amd64 libssl-dev amd64 1.1.1w-0+deb11u2 [1821 kB]
+#9 18.06 Get:2 http://deb.debian.org/debian-security bullseye-security/main amd64 libssl1.1 amd64 1.1.1w-0+deb11u2 [1565 kB]
+#9 18.87 Get:3 http://deb.debian.org/debian bullseye/main amd64 cmake-data all 3.18.4-2+deb11u1 [1725 kB]
+#9 20.21 Get:4 http://deb.debian.org/debian-security bullseye-security/main amd64 libarchive13 amd64 3.4.3-2+deb11u2 [343 kB]
+#9 22.56 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 curl amd64 7.74.0-1.3+deb11u14 [272 kB]
+#9 23.10 Get:6 http://deb.debian.org/debian-security bullseye-security/main amd64 libcurl4-openssl-dev amd64 7.74.0-1.3+deb11u14 [438 kB]
+#9 24.56 Get:7 http://deb.debian.org/debian-security bullseye-security/main amd64 libcurl4 amd64 7.74.0-1.3+deb11u14 [348 kB]
+#9 25.49 Get:8 http://deb.debian.org/debian bullseye/main amd64 libjsoncpp24 amd64 1.9.4-4 [78.9 kB]
+#9 25.57 Get:9 http://deb.debian.org/debian bullseye/main amd64 librhash0 amd64 1.4.1-2 [129 kB]
+#9 25.69 Get:10 http://deb.debian.org/debian bullseye/main amd64 libuv1 amd64 1.40.0-2+deb11u1 [132 kB]
+#9 25.80 Get:11 http://deb.debian.org/debian bullseye/main amd64 cmake amd64 3.18.4-2+deb11u1 [5593 kB]
+#9 28.80 Get:12 http://deb.debian.org/debian bullseye/main amd64 libboost1.74-dev amd64 1.74.0-9 [9534 kB]
+#9 39.03 Get:13 http://deb.debian.org/debian bullseye/main amd64 libboost-atomic1.74.0 amd64 1.74.0-9 [244 kB]
+#9 39.23 Get:14 http://deb.debian.org/debian bullseye/main amd64 libboost-atomic1.74-dev amd64 1.74.0-9 [245 kB]
+#9 39.45 Get:15 http://deb.debian.org/debian bullseye/main amd64 libboost-chrono1.74.0 amd64 1.74.0-9 [252 kB]
+#9 39.66 Get:16 http://deb.debian.org/debian bullseye/main amd64 libboost-chrono1.74-dev amd64 1.74.0-9 [260 kB]
+#9 40.16 Get:17 http://deb.debian.org/debian bullseye/main amd64 libboost-date-time1.74.0 amd64 1.74.0-9 [241 kB]
+#9 40.36 Get:18 http://deb.debian.org/debian bullseye/main amd64 libboost-serialization1.74.0 amd64 1.74.0-9 [340 kB]
+#9 40.97 Get:19 http://deb.debian.org/debian bullseye/main amd64 libboost-serialization1.74-dev amd64 1.74.0-9 [383 kB]
+#9 42.30 Get:20 http://deb.debian.org/debian bullseye/main amd64 libboost-date-time1.74-dev amd64 1.74.0-9 [250 kB]
+#9 43.92 Get:21 http://deb.debian.org/debian bullseye/main amd64 libboost-date-time-dev amd64 1.74.0.3 [4332 B]
+#9 43.92 Get:22 http://deb.debian.org/debian bullseye/main amd64 libboost-filesystem1.74.0 amd64 1.74.0-9 [283 kB]
+#9 46.33 Get:23 http://deb.debian.org/debian bullseye/main amd64 libboost-system1.74.0 amd64 1.74.0-9 [241 kB]
+#9 48.12 Get:24 http://deb.debian.org/debian bullseye/main amd64 libboost-system1.74-dev amd64 1.74.0-9 [243 kB]
+#9 49.29 Get:25 http://deb.debian.org/debian bullseye/main amd64 libboost-filesystem1.74-dev amd64 1.74.0-9 [304 kB]
+#9 49.58 Get:26 http://deb.debian.org/debian bullseye/main amd64 libboost-filesystem-dev amd64 1.74.0.3 [4368 B]
+#9 49.58 Get:27 http://deb.debian.org/debian bullseye/main amd64 libboost-program-options1.74.0 amd64 1.74.0-9 [356 kB]
+#9 49.81 Get:28 http://deb.debian.org/debian bullseye/main amd64 libboost-program-options1.74-dev amd64 1.74.0-9 [386 kB]
+#9 50.02 Get:29 http://deb.debian.org/debian bullseye/main amd64 libboost-program-options-dev amd64 1.74.0.3 [4340 B]
+#9 50.02 Get:30 http://deb.debian.org/debian bullseye/main amd64 libboost-system-dev amd64 1.74.0.3 [4468 B]
+#9 50.03 Get:31 http://deb.debian.org/debian bullseye/main amd64 libboost-test1.74.0 amd64 1.74.0-9 [472 kB]
+#9 50.31 Get:32 http://deb.debian.org/debian bullseye/main amd64 libboost-test1.74-dev amd64 1.74.0-9 [547 kB]
+#9 50.63 Get:33 http://deb.debian.org/debian bullseye/main amd64 libboost-test-dev amd64 1.74.0.3 [4368 B]
+#9 50.63 Get:34 http://deb.debian.org/debian bullseye/main amd64 libboost-thread1.74.0 amd64 1.74.0-9 [279 kB]
+#9 50.81 Get:35 http://deb.debian.org/debian bullseye/main amd64 libboost-thread1.74-dev amd64 1.74.0-9 [290 kB]
+#9 50.98 Get:36 http://deb.debian.org/debian bullseye/main amd64 libboost-thread-dev amd64 1.74.0.3 [4356 B]
+#9 50.99 Get:37 http://deb.debian.org/debian-security bullseye-security/main amd64 libcap2 amd64 1:2.44-1+deb11u1 [24.2 kB]
+#9 50.99 Get:38 http://deb.debian.org/debian-security bullseye-security/main amd64 libcap-dev amd64 1:2.44-1+deb11u1 [45.9 kB]
+#9 50.99 Get:39 http://deb.debian.org/debian bullseye/main amd64 libev4 amd64 1:4.33-1 [43.2 kB]
+#9 51.02 Get:40 http://deb.debian.org/debian bullseye/main amd64 libev-dev amd64 1:4.33-1 [137 kB]
+#9 51.11 Get:41 http://deb.debian.org/debian bullseye/main amd64 libuv1-dev amd64 1.40.0-2+deb11u1 [169 kB]
+#9 51.18 Get:42 http://deb.debian.org/debian bullseye/main amd64 libwebsockets16 amd64 4.0.20-2 [186 kB]
+#9 51.27 Get:43 http://deb.debian.org/debian bullseye/main amd64 libwebsockets-dev amd64 4.0.20-2 [438 kB]
+#9 51.43 Get:44 http://deb.debian.org/debian bullseye/main amd64 nlohmann-json3-dev all 3.9.1-1 [684 kB]
+#9 51.79 debconf: delaying package configuration, since apt-utils is not installed
+#9 51.82 Fetched 29.3 MB in 35s (846 kB/s)
+#9 51.84 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22837 files and directories currently installed.)
+#9 51.88 Preparing to unpack .../libssl-dev_1.1.1w-0+deb11u2_amd64.deb ...
+#9 51.88 Unpacking libssl-dev:amd64 (1.1.1w-0+deb11u2) over (1.1.1w-0+deb11u1) ...
+#9 52.16 Preparing to unpack .../libssl1.1_1.1.1w-0+deb11u2_amd64.deb ...
+#9 52.16 Unpacking libssl1.1:amd64 (1.1.1w-0+deb11u2) over (1.1.1w-0+deb11u1) ...
+#9 52.30 Setting up libssl1.1:amd64 (1.1.1w-0+deb11u2) ...
+#9 52.36 debconf: unable to initialize frontend: Dialog
+#9 52.36 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 52.36 debconf: falling back to frontend: Readline
+#9 52.41 Selecting previously unselected package cmake-data.
+#9 52.41 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22837 files and directories currently installed.)
+#9 52.42 Preparing to unpack .../00-cmake-data_3.18.4-2+deb11u1_all.deb ...
+#9 52.42 Unpacking cmake-data (3.18.4-2+deb11u1) ...
+#9 52.65 Selecting previously unselected package libarchive13:amd64.
+#9 52.65 Preparing to unpack .../01-libarchive13_3.4.3-2+deb11u2_amd64.deb ...
+#9 52.65 Unpacking libarchive13:amd64 (3.4.3-2+deb11u2) ...
+#9 52.70 Preparing to unpack .../02-curl_7.74.0-1.3+deb11u14_amd64.deb ...
+#9 52.71 Unpacking curl (7.74.0-1.3+deb11u14) over (7.74.0-1.3+deb11u12) ...
+#9 52.75 Preparing to unpack .../03-libcurl4-openssl-dev_7.74.0-1.3+deb11u14_amd64.deb ...
+#9 52.76 Unpacking libcurl4-openssl-dev:amd64 (7.74.0-1.3+deb11u14) over (7.74.0-1.3+deb11u12) ...
+#9 52.83 Preparing to unpack .../04-libcurl4_7.74.0-1.3+deb11u14_amd64.deb ...
+#9 52.84 Unpacking libcurl4:amd64 (7.74.0-1.3+deb11u14) over (7.74.0-1.3+deb11u12) ...
+#9 52.89 Selecting previously unselected package libjsoncpp24:amd64.
+#9 52.89 Preparing to unpack .../05-libjsoncpp24_1.9.4-4_amd64.deb ...
+#9 52.89 Unpacking libjsoncpp24:amd64 (1.9.4-4) ...
+#9 52.92 Selecting previously unselected package librhash0:amd64.
+#9 52.92 Preparing to unpack .../06-librhash0_1.4.1-2_amd64.deb ...
+#9 52.92 Unpacking librhash0:amd64 (1.4.1-2) ...
+#9 52.95 Selecting previously unselected package libuv1:amd64.
+#9 52.95 Preparing to unpack .../07-libuv1_1.40.0-2+deb11u1_amd64.deb ...
+#9 52.96 Unpacking libuv1:amd64 (1.40.0-2+deb11u1) ...
+#9 52.98 Selecting previously unselected package cmake.
+#9 52.98 Preparing to unpack .../08-cmake_3.18.4-2+deb11u1_amd64.deb ...
+#9 52.98 Unpacking cmake (3.18.4-2+deb11u1) ...
+#9 53.35 Selecting previously unselected package libboost1.74-dev:amd64.
+#9 53.35 Preparing to unpack .../09-libboost1.74-dev_1.74.0-9_amd64.deb ...
+#9 53.36 Unpacking libboost1.74-dev:amd64 (1.74.0-9) ...
+#9 54.51 Selecting previously unselected package libboost-atomic1.74.0:amd64.
+#9 54.51 Preparing to unpack .../10-libboost-atomic1.74.0_1.74.0-9_amd64.deb ...
+#9 54.51 Unpacking libboost-atomic1.74.0:amd64 (1.74.0-9) ...
+#9 54.55 Selecting previously unselected package libboost-atomic1.74-dev:amd64.
+#9 54.55 Preparing to unpack .../11-libboost-atomic1.74-dev_1.74.0-9_amd64.deb ...
+#9 54.55 Unpacking libboost-atomic1.74-dev:amd64 (1.74.0-9) ...
+#9 54.58 Selecting previously unselected package libboost-chrono1.74.0:amd64.
+#9 54.59 Preparing to unpack .../12-libboost-chrono1.74.0_1.74.0-9_amd64.deb ...
+#9 54.59 Unpacking libboost-chrono1.74.0:amd64 (1.74.0-9) ...
+#9 54.62 Selecting previously unselected package libboost-chrono1.74-dev:amd64.
+#9 54.63 Preparing to unpack .../13-libboost-chrono1.74-dev_1.74.0-9_amd64.deb ...
+#9 54.63 Unpacking libboost-chrono1.74-dev:amd64 (1.74.0-9) ...
+#9 54.67 Selecting previously unselected package libboost-date-time1.74.0:amd64.
+#9 54.67 Preparing to unpack .../14-libboost-date-time1.74.0_1.74.0-9_amd64.deb ...
+#9 54.67 Unpacking libboost-date-time1.74.0:amd64 (1.74.0-9) ...
+#9 54.71 Selecting previously unselected package libboost-serialization1.74.0:amd64.
+#9 54.71 Preparing to unpack .../15-libboost-serialization1.74.0_1.74.0-9_amd64.deb ...
+#9 54.71 Unpacking libboost-serialization1.74.0:amd64 (1.74.0-9) ...
+#9 54.75 Selecting previously unselected package libboost-serialization1.74-dev:amd64.
+#9 54.75 Preparing to unpack .../16-libboost-serialization1.74-dev_1.74.0-9_amd64.deb ...
+#9 54.76 Unpacking libboost-serialization1.74-dev:amd64 (1.74.0-9) ...
+#9 54.80 Selecting previously unselected package libboost-date-time1.74-dev:amd64.
+#9 54.81 Preparing to unpack .../17-libboost-date-time1.74-dev_1.74.0-9_amd64.deb ...
+#9 54.81 Unpacking libboost-date-time1.74-dev:amd64 (1.74.0-9) ...
+#9 54.84 Selecting previously unselected package libboost-date-time-dev:amd64.
+#9 54.84 Preparing to unpack .../18-libboost-date-time-dev_1.74.0.3_amd64.deb ...
+#9 54.85 Unpacking libboost-date-time-dev:amd64 (1.74.0.3) ...
+#9 54.87 Selecting previously unselected package libboost-filesystem1.74.0:amd64.
+#9 54.87 Preparing to unpack .../19-libboost-filesystem1.74.0_1.74.0-9_amd64.deb ...
+#9 54.88 Unpacking libboost-filesystem1.74.0:amd64 (1.74.0-9) ...
+#9 54.92 Selecting previously unselected package libboost-system1.74.0:amd64.
+#9 54.92 Preparing to unpack .../20-libboost-system1.74.0_1.74.0-9_amd64.deb ...
+#9 54.92 Unpacking libboost-system1.74.0:amd64 (1.74.0-9) ...
+#9 54.96 Selecting previously unselected package libboost-system1.74-dev:amd64.
+#9 54.96 Preparing to unpack .../21-libboost-system1.74-dev_1.74.0-9_amd64.deb ...
+#9 54.96 Unpacking libboost-system1.74-dev:amd64 (1.74.0-9) ...
+#9 55.00 Selecting previously unselected package libboost-filesystem1.74-dev:amd64.
+#9 55.00 Preparing to unpack .../22-libboost-filesystem1.74-dev_1.74.0-9_amd64.deb ...
+#9 55.00 Unpacking libboost-filesystem1.74-dev:amd64 (1.74.0-9) ...
+#9 55.04 Selecting previously unselected package libboost-filesystem-dev:amd64.
+#9 55.04 Preparing to unpack .../23-libboost-filesystem-dev_1.74.0.3_amd64.deb ...
+#9 55.04 Unpacking libboost-filesystem-dev:amd64 (1.74.0.3) ...
+#9 55.06 Selecting previously unselected package libboost-program-options1.74.0:amd64.
+#9 55.06 Preparing to unpack .../24-libboost-program-options1.74.0_1.74.0-9_amd64.deb ...
+#9 55.07 Unpacking libboost-program-options1.74.0:amd64 (1.74.0-9) ...
+#9 55.11 Selecting previously unselected package libboost-program-options1.74-dev:amd64.
+#9 55.11 Preparing to unpack .../25-libboost-program-options1.74-dev_1.74.0-9_amd64.deb ...
+#9 55.11 Unpacking libboost-program-options1.74-dev:amd64 (1.74.0-9) ...
+#9 55.15 Selecting previously unselected package libboost-program-options-dev:amd64.
+#9 55.16 Preparing to unpack .../26-libboost-program-options-dev_1.74.0.3_amd64.deb ...
+#9 55.16 Unpacking libboost-program-options-dev:amd64 (1.74.0.3) ...
+#9 55.18 Selecting previously unselected package libboost-system-dev:amd64.
+#9 55.18 Preparing to unpack .../27-libboost-system-dev_1.74.0.3_amd64.deb ...
+#9 55.18 Unpacking libboost-system-dev:amd64 (1.74.0.3) ...
+#9 55.20 Selecting previously unselected package libboost-test1.74.0:amd64.
+#9 55.21 Preparing to unpack .../28-libboost-test1.74.0_1.74.0-9_amd64.deb ...
+#9 55.21 Unpacking libboost-test1.74.0:amd64 (1.74.0-9) ...
+#9 55.26 Selecting previously unselected package libboost-test1.74-dev:amd64.
+#9 55.26 Preparing to unpack .../29-libboost-test1.74-dev_1.74.0-9_amd64.deb ...
+#9 55.26 Unpacking libboost-test1.74-dev:amd64 (1.74.0-9) ...
+#9 55.33 Selecting previously unselected package libboost-test-dev:amd64.
+#9 55.33 Preparing to unpack .../30-libboost-test-dev_1.74.0.3_amd64.deb ...
+#9 55.33 Unpacking libboost-test-dev:amd64 (1.74.0.3) ...
+#9 55.35 Selecting previously unselected package libboost-thread1.74.0:amd64.
+#9 55.35 Preparing to unpack .../31-libboost-thread1.74.0_1.74.0-9_amd64.deb ...
+#9 55.35 Unpacking libboost-thread1.74.0:amd64 (1.74.0-9) ...
+#9 55.39 Selecting previously unselected package libboost-thread1.74-dev:amd64.
+#9 55.39 Preparing to unpack .../32-libboost-thread1.74-dev_1.74.0-9_amd64.deb ...
+#9 55.40 Unpacking libboost-thread1.74-dev:amd64 (1.74.0-9) ...
+#9 55.43 Selecting previously unselected package libboost-thread-dev:amd64.
+#9 55.43 Preparing to unpack .../33-libboost-thread-dev_1.74.0.3_amd64.deb ...
+#9 55.44 Unpacking libboost-thread-dev:amd64 (1.74.0.3) ...
+#9 55.46 Selecting previously unselected package libcap2:amd64.
+#9 55.46 Preparing to unpack .../34-libcap2_1%3a2.44-1+deb11u1_amd64.deb ...
+#9 55.46 Unpacking libcap2:amd64 (1:2.44-1+deb11u1) ...
+#9 55.48 Selecting previously unselected package libcap-dev:amd64.
+#9 55.49 Preparing to unpack .../35-libcap-dev_1%3a2.44-1+deb11u1_amd64.deb ...
+#9 55.49 Unpacking libcap-dev:amd64 (1:2.44-1+deb11u1) ...
+#9 55.51 Selecting previously unselected package libev4:amd64.
+#9 55.52 Preparing to unpack .../36-libev4_1%3a4.33-1_amd64.deb ...
+#9 55.52 Unpacking libev4:amd64 (1:4.33-1) ...
+#9 55.54 Selecting previously unselected package libev-dev:amd64.
+#9 55.55 Preparing to unpack .../37-libev-dev_1%3a4.33-1_amd64.deb ...
+#9 55.55 Unpacking libev-dev:amd64 (1:4.33-1) ...
+#9 55.58 Selecting previously unselected package libuv1-dev:amd64.
+#9 55.58 Preparing to unpack .../38-libuv1-dev_1.40.0-2+deb11u1_amd64.deb ...
+#9 55.58 Unpacking libuv1-dev:amd64 (1.40.0-2+deb11u1) ...
+#9 55.61 Selecting previously unselected package libwebsockets16:amd64.
+#9 55.62 Preparing to unpack .../39-libwebsockets16_4.0.20-2_amd64.deb ...
+#9 55.62 Unpacking libwebsockets16:amd64 (4.0.20-2) ...
+#9 55.65 Selecting previously unselected package libwebsockets-dev:amd64.
+#9 55.66 Preparing to unpack .../40-libwebsockets-dev_4.0.20-2_amd64.deb ...
+#9 55.66 Unpacking libwebsockets-dev:amd64 (4.0.20-2) ...
+#9 55.73 Selecting previously unselected package nlohmann-json3-dev.
+#9 55.73 Preparing to unpack .../41-nlohmann-json3-dev_3.9.1-1_all.deb ...
+#9 55.73 Unpacking nlohmann-json3-dev (3.9.1-1) ...
+#9 55.87 Setting up libboost-chrono1.74.0:amd64 (1.74.0-9) ...
+#9 55.87 Setting up libboost-system1.74.0:amd64 (1.74.0-9) ...
+#9 55.87 Setting up libboost1.74-dev:amd64 (1.74.0-9) ...
+#9 55.88 Setting up libboost-atomic1.74.0:amd64 (1.74.0-9) ...
+#9 55.88 Setting up libarchive13:amd64 (3.4.3-2+deb11u2) ...
+#9 55.89 Setting up libboost-program-options1.74.0:amd64 (1.74.0-9) ...
+#9 55.89 Setting up libev4:amd64 (1:4.33-1) ...
+#9 55.89 Setting up libboost-chrono1.74-dev:amd64 (1.74.0-9) ...
+#9 55.90 Setting up libboost-filesystem1.74.0:amd64 (1.74.0-9) ...
+#9 55.91 Setting up libcap2:amd64 (1:2.44-1+deb11u1) ...
+#9 55.92 Setting up libboost-program-options1.74-dev:amd64 (1.74.0-9) ...
+#9 55.92 Setting up libuv1:amd64 (1.40.0-2+deb11u1) ...
+#9 55.93 Setting up libboost-test1.74.0:amd64 (1.74.0-9) ...
+#9 55.93 Setting up libboost-program-options-dev:amd64 (1.74.0.3) ...
+#9 55.94 Setting up libboost-system1.74-dev:amd64 (1.74.0-9) ...
+#9 55.94 Setting up libssl-dev:amd64 (1.1.1w-0+deb11u2) ...
+#9 55.95 Setting up libjsoncpp24:amd64 (1.9.4-4) ...
+#9 55.95 Setting up libboost-atomic1.74-dev:amd64 (1.74.0-9) ...
+#9 55.96 Setting up libboost-serialization1.74.0:amd64 (1.74.0-9) ...
+#9 55.96 Setting up librhash0:amd64 (1.4.1-2) ...
+#9 55.97 Setting up libcurl4:amd64 (7.74.0-1.3+deb11u14) ...
+#9 55.98 Setting up cmake-data (3.18.4-2+deb11u1) ...
+#9 55.99 Setting up curl (7.74.0-1.3+deb11u14) ...
+#9 55.99 Setting up libev-dev:amd64 (1:4.33-1) ...
+#9 56.00 Setting up libboost-filesystem1.74-dev:amd64 (1.74.0-9) ...
+#9 56.00 Setting up nlohmann-json3-dev (3.9.1-1) ...
+#9 56.01 Setting up libboost-date-time1.74.0:amd64 (1.74.0-9) ...
+#9 56.01 Setting up libboost-test1.74-dev:amd64 (1.74.0-9) ...
+#9 56.02 Setting up libcap-dev:amd64 (1:2.44-1+deb11u1) ...
+#9 56.02 Setting up libboost-filesystem-dev:amd64 (1.74.0.3) ...
+#9 56.03 Setting up libboost-thread1.74.0:amd64 (1.74.0-9) ...
+#9 56.03 Setting up libuv1-dev:amd64 (1.40.0-2+deb11u1) ...
+#9 56.04 Setting up libwebsockets16:amd64 (4.0.20-2) ...
+#9 56.04 Setting up libboost-system-dev:amd64 (1.74.0.3) ...
+#9 56.05 Setting up libboost-test-dev:amd64 (1.74.0.3) ...
+#9 56.05 Setting up libcurl4-openssl-dev:amd64 (7.74.0-1.3+deb11u14) ...
+#9 56.05 Setting up libboost-serialization1.74-dev:amd64 (1.74.0-9) ...
+#9 56.06 Setting up cmake (3.18.4-2+deb11u1) ...
+#9 56.06 Setting up libwebsockets-dev:amd64 (4.0.20-2) ...
+#9 56.07 Setting up libboost-date-time1.74-dev:amd64 (1.74.0-9) ...
+#9 56.07 Setting up libboost-date-time-dev:amd64 (1.74.0.3) ...
+#9 56.08 Setting up libboost-thread1.74-dev:amd64 (1.74.0-9) ...
+#9 56.09 Setting up libboost-thread-dev:amd64 (1.74.0.3) ...
+#9 56.09 Processing triggers for libc-bin (2.31-13+deb11u10) ...
+#9 DONE 56.4s
+
+#10 [builder 3/7] WORKDIR /tmp
+#10 DONE 0.0s
+
+#11 [builder 4/7] RUN apt-get update && apt-get install -y git &&     git clone https://github.com/redis/hiredis.git &&     cd hiredis &&     make -j$(nproc) &&     make install &&     ldconfig &&     git clone https://github.com/sewenew/redis-plus-plus.git &&     cd redis-plus-plus &&     mkdir build && cd build &&     cmake -DREDIS_PLUS_PLUS_CXX_STANDARD=17 .. &&     make -j$(nproc) &&     make install &&     ldconfig
+#11 0.445 Get:1 http://deb.debian.org/debian bullseye InRelease [116 kB]
+#11 0.902 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.2 kB]
+#11 1.137 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.1 kB]
+#11 1.178 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#11 9.068 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [364 kB]
+#11 9.243 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#11 9.802 Fetched 8636 kB in 10s (894 kB/s)
+#11 9.802 Reading package lists...
+#11 10.19 Reading package lists...
+#11 10.55 Building dependency tree...
+#11 10.64 Reading state information...
+#11 10.73 Suggested packages:
+#11 10.73   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-el git-email
+#11 10.73   git-gui gitk gitweb git-cvs git-mediawiki git-svn
+#11 10.73 Recommended packages:
+#11 10.73   less
+#11 10.76 The following packages will be upgraded:
+#11 10.76   git
+#11 10.87 1 upgraded, 0 newly installed, 0 to remove and 92 not upgraded.
+#11 10.87 Need to get 5566 kB of archives.
+#11 10.87 After this operation, 197 kB of additional disk space will be used.
+#11 10.87 Get:1 http://deb.debian.org/debian-security bullseye-security/main amd64 git amd64 1:2.30.2-1+deb11u4 [5566 kB]
+#11 17.36 debconf: delaying package configuration, since apt-utils is not installed
+#11 17.38 Fetched 5566 kB in 6s (858 kB/s)
+#11 17.41 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 42696 files and directories currently installed.)
+#11 17.42 Preparing to unpack .../git_1%3a2.30.2-1+deb11u4_amd64.deb ...
+#11 17.46 Unpacking git (1:2.30.2-1+deb11u4) over (1:2.30.2-1+deb11u2) ...
+#11 18.61 Setting up git (1:2.30.2-1+deb11u4) ...
+#11 18.64 Cloning into 'hiredis'...
+#11 21.27 cc -std=c99 -c -O3 -fPIC   -Wall -Wextra -Wstrict-prototypes -Wwrite-strings -Wno-missing-field-initializers -Werror -g -ggdb  -pedantic alloc.c
+#11 21.27 cc -std=c99 -c -O3 -fPIC   -Wall -Wextra -Wstrict-prototypes -Wwrite-strings -Wno-missing-field-initializers -Werror -g -ggdb  -pedantic net.c
+#11 21.27 cc -std=c99 -c -O3 -fPIC   -Wall -Wextra -Wstrict-prototypes -Wwrite-strings -Wno-missing-field-initializers -Werror -g -ggdb  -pedantic hiredis.c
+#11 21.27 cc -std=c99 -c -O3 -fPIC   -Wall -Wextra -Wstrict-prototypes -Wwrite-strings -Wno-missing-field-initializers -Werror -g -ggdb  -pedantic sds.c
+#11 21.28 cc -std=c99 -c -O3 -fPIC   -Wall -Wextra -Wstrict-prototypes -Wwrite-strings -Wno-missing-field-initializers -Werror -g -ggdb  -pedantic async.c
+#11 21.28 cc -std=c99 -c -O3 -fPIC   -Wall -Wextra -Wstrict-prototypes -Wwrite-strings -Wno-missing-field-initializers -Werror -g -ggdb  -pedantic read.c
+#11 21.28 cc -std=c99 -c -O3 -fPIC   -Wall -Wextra -Wstrict-prototypes -Wwrite-strings -Wno-missing-field-initializers -Werror -g -ggdb  -pedantic sockcompat.c
+#11 21.28 cc -std=c99 -c -O3 -fPIC   -Wall -Wextra -Wstrict-prototypes -Wwrite-strings -Wno-missing-field-initializers -Werror -g -ggdb  -pedantic test.c
+#11 21.29 Generating hiredis.pc for pkgconfig...
+#11 21.74 cc  -shared -Wl,-soname,libhiredis.so.1.3.0 -o libhiredis.so alloc.o net.o hiredis.o sds.o async.o read.o sockcompat.o 
+#11 21.74 ar rcs libhiredis.a alloc.o net.o hiredis.o sds.o async.o read.o sockcompat.o
+#11 21.89 cc -o hiredis-test -O3 -fPIC   -Wall -Wextra -Wstrict-prototypes -Wwrite-strings -Wno-missing-field-initializers -Werror -g -ggdb  -pedantic -I. test.o libhiredis.a  
+#11 21.92 mkdir -p /usr/local/include/hiredis /usr/local/include/hiredis/adapters /usr/local/lib
+#11 21.92 cp -pPR hiredis.h async.h read.h sds.h alloc.h sockcompat.h /usr/local/include/hiredis
+#11 21.92 cp -pPR adapters/*.h /usr/local/include/hiredis/adapters
+#11 21.92 cp -pPR libhiredis.so /usr/local/lib/libhiredis.so.1.3.0
+#11 21.93 cd /usr/local/lib && ln -sf libhiredis.so.1.3.0 libhiredis.so && ln -sf libhiredis.so.1.3.0 libhiredis.so.1
+#11 21.93 cp -pPR libhiredis.a /usr/local/lib
+#11 21.93 mkdir -p /usr/local/lib/pkgconfig
+#11 21.93 cp -pPR hiredis.pc /usr/local/lib/pkgconfig
+#11 21.94 Cloning into 'redis-plus-plus'...
+#11 24.06 -- redis-plus-plus version: 1.3.15
+#11 24.14 -- The CXX compiler identification is GNU 11.5.0
+#11 24.15 -- Detecting CXX compiler ABI info
+#11 24.25 -- Detecting CXX compiler ABI info - done
+#11 24.26 -- Check for working CXX compiler: /usr/local/bin/c++ - skipped
+#11 24.26 -- Detecting CXX compile features
+#11 24.26 -- Detecting CXX compile features - done
+#11 24.26 -- redis-plus-plus build type: Release
+#11 24.26 -- redis-plus-plus build with CXX standard: c++17
+#11 24.26 -- redis-plus-plus TLS support: OFF
+#11 24.26 -- redis-plus-plus check hiredis features
+#11 24.26 -- Looking for redisEnableKeepAliveWithInterval
+#11 24.37 -- Looking for redisEnableKeepAliveWithInterval - found
+#11 24.37 -- redis-plus-plus build static library: ON
+#11 24.37 -- redis-plus-plus build static library with position independent code: ON
+#11 24.37 -- redis-plus-plus build shared library: ON
+#11 24.37 -- redis-plus-plus build test: ON
+#11 24.41 -- The C compiler identification is GNU 11.5.0
+#11 24.41 -- Detecting C compiler ABI info
+#11 24.48 -- Detecting C compiler ABI info - done
+#11 24.49 -- Check for working C compiler: /usr/local/bin/gcc - skipped
+#11 24.49 -- Detecting C compile features
+#11 24.49 -- Detecting C compile features - done
+#11 24.49 -- Looking for pthread.h
+#11 24.56 -- Looking for pthread.h - found
+#11 24.56 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#11 24.62 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+#11 24.62 -- Looking for pthread_create in pthreads
+#11 24.68 -- Looking for pthread_create in pthreads - not found
+#11 24.68 -- Looking for pthread_create in pthread
+#11 24.74 -- Looking for pthread_create in pthread - found
+#11 24.74 -- Found Threads: TRUE  
+#11 24.75 -- Debian package name: .deb
+#11 24.75 -- Configuring done
+#11 24.76 -- Generating done
+#11 24.76 -- Build files have been written to: /tmp/hiredis/redis-plus-plus/build
+#11 24.80 Scanning dependencies of target redis++_static
+#11 24.80 Scanning dependencies of target redis++
+#11 24.82 [  5%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/connection_pool.cpp.o
+#11 24.82 [  5%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/command_options.cpp.o
+#11 24.82 [  7%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/pipeline.cpp.o
+#11 24.82 [ 10%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/command.cpp.o
+#11 24.82 [ 13%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/crc16.cpp.o
+#11 24.82 [ 15%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/command_options.cpp.o
+#11 24.82 [ 18%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/command.cpp.o
+#11 24.82 [ 21%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/errors.cpp.o
+#11 24.82 [ 23%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/connection.cpp.o
+#11 24.82 [ 26%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/connection.cpp.o
+#11 24.83 [ 28%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/connection_pool.cpp.o
+#11 24.83 [ 31%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/redis.cpp.o
+#11 25.29 [ 34%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/crc16.cpp.o
+#11 25.42 [ 36%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/errors.cpp.o
+#11 25.67 [ 39%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/pipeline.cpp.o
+#11 25.69 [ 42%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/redis_cluster.cpp.o
+#11 25.98 [ 44%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/redis.cpp.o
+#11 26.07 [ 47%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/redis_uri.cpp.o
+#11 26.37 [ 50%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/reply.cpp.o
+#11 26.39 [ 52%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/sentinel.cpp.o
+#11 26.45 [ 55%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/redis_cluster.cpp.o
+#11 26.74 [ 57%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/shards.cpp.o
+#11 26.77 [ 60%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/shards_pool.cpp.o
+#11 26.94 [ 63%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/redis_uri.cpp.o
+#11 27.06 [ 65%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/reply.cpp.o
+#11 27.31 [ 68%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/sentinel.cpp.o
+#11 27.38 [ 71%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/shards.cpp.o
+#11 27.44 [ 73%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/shards_pool.cpp.o
+#11 28.00 [ 76%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/subscriber.cpp.o
+#11 28.14 [ 78%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/subscriber.cpp.o
+#11 28.24 [ 81%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/transaction.cpp.o
+#11 29.19 [ 84%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/transaction.cpp.o
+#11 29.68 [ 86%] Building CXX object CMakeFiles/redis++.dir/src/sw/redis++/patterns/redlock.cpp.o
+#11 29.73 [ 89%] Building CXX object CMakeFiles/redis++_static.dir/src/sw/redis++/patterns/redlock.cpp.o
+#11 32.39 [ 92%] Linking CXX shared library libredis++.so
+#11 32.49 [ 92%] Built target redis++
+#11 32.89 [ 94%] Linking CXX static library libredis++.a
+#11 32.93 [ 94%] Built target redis++_static
+#11 32.94 Scanning dependencies of target test_redis++
+#11 32.95 [ 97%] Building CXX object test/CMakeFiles/test_redis++.dir/src/sw/redis++/test_main.cpp.o
+#11 57.74 [100%] Linking CXX executable test_redis++
+#11 57.87 [100%] Built target test_redis++
+#11 57.94 [ 47%] Built target redis++
+#11 57.96 [ 94%] Built target redis++_static
+#11 57.99 [100%] Built target test_redis++
+#11 58.01 Install the project...
+#11 58.02 -- Install configuration: "Release"
+#11 58.02 -- Installing: /usr/local/lib/libredis++.a
+#11 58.02 -- Installing: /usr/local/lib/libredis++.so.1.3.15
+#11 58.02 -- Installing: /usr/local/lib/libredis++.so.1
+#11 58.02 -- Installing: /usr/local/lib/libredis++.so
+#11 58.03 -- Installing: /usr/local/share/cmake/redis++/redis++-targets.cmake
+#11 58.03 -- Installing: /usr/local/share/cmake/redis++/redis++-targets-release.cmake
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/hiredis_features.h
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/cmd_formatter.h
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/command.h
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/command_args.h
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/command_options.h
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/connection.h
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/connection_pool.h
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/cxx_utils.h
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/errors.h
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/tls.h
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/pipeline.h
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/queued_redis.h
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/queued_redis.hpp
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/redis++.h
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/redis.h
+#11 58.03 -- Installing: /usr/local/include/sw/redis++/redis.hpp
+#11 58.04 -- Installing: /usr/local/include/sw/redis++/redis_cluster.h
+#11 58.04 -- Installing: /usr/local/include/sw/redis++/redis_cluster.hpp
+#11 58.04 -- Installing: /usr/local/include/sw/redis++/redis_uri.h
+#11 58.04 -- Installing: /usr/local/include/sw/redis++/reply.h
+#11 58.04 -- Installing: /usr/local/include/sw/redis++/sentinel.h
+#11 58.04 -- Installing: /usr/local/include/sw/redis++/shards.h
+#11 58.04 -- Installing: /usr/local/include/sw/redis++/shards_pool.h
+#11 58.04 -- Installing: /usr/local/include/sw/redis++/subscriber.h
+#11 58.04 -- Installing: /usr/local/include/sw/redis++/transaction.h
+#11 58.04 -- Installing: /usr/local/include/sw/redis++/utils.h
+#11 58.04 -- Installing: /usr/local/include/sw/redis++/version.h
+#11 58.04 -- Installing: /usr/local/include/sw/redis++/patterns/redlock.h
+#11 58.04 -- Installing: /usr/local/share/cmake/redis++/redis++-config.cmake
+#11 58.04 -- Installing: /usr/local/share/cmake/redis++/redis++-config-version.cmake
+#11 58.04 -- Installing: /usr/local/lib/pkgconfig/redis++.pc
+#11 DONE 58.1s
+
+#12 [builder 5/7] WORKDIR /app
+#12 DONE 0.0s
+
+#13 [builder 6/7] COPY . .
+#13 DONE 0.0s
+
+#14 [builder 7/7] RUN mkdir -p build &&     cd build &&     cmake .. &&     cmake --build . --verbose ||     (echo "Build failed!" &&      echo "CMakeCache.txt contents:" &&      cat CMakeCache.txt &&      echo "Directory contents:" &&      ls -la .. &&      exit 1)
+#14 0.203 -- The C compiler identification is GNU 11.5.0
+#14 0.290 -- The CXX compiler identification is GNU 11.5.0
+#14 0.301 -- Detecting C compiler ABI info
+#14 0.382 -- Detecting C compiler ABI info - done
+#14 0.389 -- Check for working C compiler: /usr/bin/cc - skipped
+#14 0.389 -- Detecting C compile features
+#14 0.389 -- Detecting C compile features - done
+#14 0.392 -- Detecting CXX compiler ABI info
+#14 0.495 -- Detecting CXX compiler ABI info - done
+#14 0.505 -- Check for working CXX compiler: /usr/local/bin/c++ - skipped
+#14 0.506 -- Detecting CXX compile features
+#14 0.506 -- Detecting CXX compile features - done
+#14 0.571 -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1w")  
+#14 0.636 -- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.74.0")  
+#14 0.643 -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system 
+#14 0.649 -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") 
+#14 0.652 -- Found nlohmann_json: /usr/lib/cmake/nlohmann_json/nlohmann_jsonConfig.cmake (found suitable version "3.9.1", minimum required is "3.2.0") 
+#14 0.652 -- Checking for module 'libwebsockets'
+#14 0.668 --   Found libwebsockets, version 4.0.20
+#14 0.700 -- Configuring done
+#14 0.705 -- Generating done
+#14 0.706 -- Build files have been written to: /app/build
+#14 0.734 /usr/bin/cmake -S/app -B/app/build --check-build-system CMakeFiles/Makefile.cmake 0
+#14 0.742 /usr/bin/cmake -E cmake_progress_start /app/build/CMakeFiles /app/build//CMakeFiles/progress.marks
+#14 0.751 /usr/bin/gmake  -f CMakeFiles/Makefile2 all
+#14 0.752 gmake[1]: Entering directory '/app/build'
+#14 0.752 /usr/bin/gmake  -f CMakeFiles/market_data_feed.dir/build.make CMakeFiles/market_data_feed.dir/depend
+#14 0.753 gmake[2]: Entering directory '/app/build'
+#14 0.753 cd /app/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /app /app /app/build /app/build /app/build/CMakeFiles/market_data_feed.dir/DependInfo.cmake --color=
+#14 0.759 Dependee "/app/build/CMakeFiles/market_data_feed.dir/DependInfo.cmake" is newer than depender "/app/build/CMakeFiles/market_data_feed.dir/depend.internal".
+#14 0.759 Dependee "/app/build/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "/app/build/CMakeFiles/market_data_feed.dir/depend.internal".
+#14 0.759 Scanning dependencies of target market_data_feed
+#14 0.760 gmake[2]: Leaving directory '/app/build'
+#14 0.760 /usr/bin/gmake  -f CMakeFiles/market_data_feed.dir/build.make CMakeFiles/market_data_feed.dir/build
+#14 0.761 gmake[2]: Entering directory '/app/build'
+#14 0.770 [ 14%] Building CXX object CMakeFiles/market_data_feed.dir/main_market_data.cpp.o
+#14 0.770 /usr/local/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I/app -Wall -Wextra -pedantic -O3 -std=gnu++17 -o CMakeFiles/market_data_feed.dir/main_market_data.cpp.o -c /app/main_market_data.cpp
+#14 0.832 /app/main_market_data.cpp:8:10: fatal error: redis/client.h: No such file or directory
+#14 0.832     8 | #include <redis/client.h>
+#14 0.832       |          ^~~~~~~~~~~~~~~~
+#14 0.832 compilation terminated.
+#14 0.833 gmake[2]: *** [CMakeFiles/market_data_feed.dir/build.make:82: CMakeFiles/market_data_feed.dir/main_market_data.cpp.o] Error 1
+#14 0.833 gmake[2]: Leaving directory '/app/build'
+#14 0.833 gmake[1]: Leaving directory '/app/build'
+#14 0.833 gmake[1]: *** [CMakeFiles/Makefile2:97: CMakeFiles/market_data_feed.dir/all] Error 2
+#14 0.834 gmake: *** [Makefile:103: all] Error 2
+#14 0.836 Build failed!
+#14 0.836 CMakeCache.txt contents:
+#14 0.836 # This is the CMakeCache file.
+#14 0.836 # For build in directory: /app/build
+#14 0.836 # It was generated by CMake: /usr/bin/cmake
+#14 0.836 # You can edit this file to change values found and used by cmake.
+#14 0.836 # If you do not want to change any of the values, simply exit the editor.
+#14 0.836 # If you do want to change a value, simply edit, save, and exit the editor.
+#14 0.836 # The syntax for the file is as follows:
+#14 0.836 # KEY:TYPE=VALUE
+#14 0.836 # KEY is the name of a variable in the cache.
+#14 0.836 # TYPE is a hint to GUIs for the type of VALUE, DO NOT EDIT TYPE!.
+#14 0.836 # VALUE is the current value for the KEY.
+#14 0.836 
+#14 0.836 ########################
+#14 0.836 # EXTERNAL cache entries
+#14 0.836 ########################
+#14 0.836 
+#14 0.836 //The directory containing a CMake configuration file for Boost.
+#14 0.836 Boost_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0
+#14 0.836 
+#14 0.836 //Path to a file.
+#14 0.836 Boost_INCLUDE_DIR:PATH=/usr/include
+#14 0.836 
+#14 0.836 Boost_SYSTEM_LIBRARY_RELEASE:STRING=/usr/lib/x86_64-linux-gnu/libboost_system.so.1.74.0
+#14 0.836 
+#14 0.836 //Path to a program.
+#14 0.836 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
+#14 0.836 
+#14 0.836 //Path to a program.
+#14 0.836 CMAKE_AR:FILEPATH=/usr/bin/ar
+#14 0.836 
+#14 0.836 //Choose the type of build, options are: None Debug Release RelWithDebInfo
+#14 0.836 // MinSizeRel ...
+#14 0.836 CMAKE_BUILD_TYPE:STRING=
+#14 0.836 
+#14 0.836 //Enable/Disable color output during build.
+#14 0.836 CMAKE_COLOR_MAKEFILE:BOOL=ON
+#14 0.836 
+#14 0.836 //CXX compiler
+#14 0.836 CMAKE_CXX_COMPILER:FILEPATH=/usr/local/bin/c++
+#14 0.836 
+#14 0.836 //A wrapper around 'ar' adding the appropriate '--plugin' option
+#14 0.836 // for the GCC compiler
+#14 0.836 CMAKE_CXX_COMPILER_AR:FILEPATH=/usr/local/bin/gcc-ar
+#14 0.836 
+#14 0.836 //A wrapper around 'ranlib' adding the appropriate '--plugin' option
+#14 0.836 // for the GCC compiler
+#14 0.836 CMAKE_CXX_COMPILER_RANLIB:FILEPATH=/usr/local/bin/gcc-ranlib
+#14 0.836 
+#14 0.836 //Flags used by the CXX compiler during all build types.
+#14 0.836 CMAKE_CXX_FLAGS:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the CXX compiler during DEBUG builds.
+#14 0.836 CMAKE_CXX_FLAGS_DEBUG:STRING=-g
+#14 0.836 
+#14 0.836 //Flags used by the CXX compiler during MINSIZEREL builds.
+#14 0.836 CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
+#14 0.836 
+#14 0.836 //Flags used by the CXX compiler during RELEASE builds.
+#14 0.836 CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+#14 0.836 
+#14 0.836 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
+#14 0.836 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+#14 0.836 
+#14 0.836 //C compiler
+#14 0.836 CMAKE_C_COMPILER:FILEPATH=/usr/bin/cc
+#14 0.836 
+#14 0.836 //A wrapper around 'ar' adding the appropriate '--plugin' option
+#14 0.836 // for the GCC compiler
+#14 0.836 CMAKE_C_COMPILER_AR:FILEPATH=/usr/bin/gcc-ar
+#14 0.836 
+#14 0.836 //A wrapper around 'ranlib' adding the appropriate '--plugin' option
+#14 0.836 // for the GCC compiler
+#14 0.836 CMAKE_C_COMPILER_RANLIB:FILEPATH=/usr/bin/gcc-ranlib
+#14 0.836 
+#14 0.836 //Flags used by the C compiler during all build types.
+#14 0.836 CMAKE_C_FLAGS:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the C compiler during DEBUG builds.
+#14 0.836 CMAKE_C_FLAGS_DEBUG:STRING=-g
+#14 0.836 
+#14 0.836 //Flags used by the C compiler during MINSIZEREL builds.
+#14 0.836 CMAKE_C_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
+#14 0.836 
+#14 0.836 //Flags used by the C compiler during RELEASE builds.
+#14 0.836 CMAKE_C_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+#14 0.836 
+#14 0.836 //Flags used by the C compiler during RELWITHDEBINFO builds.
+#14 0.836 CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+#14 0.836 
+#14 0.836 //Path to a program.
+#14 0.836 CMAKE_DLLTOOL:FILEPATH=CMAKE_DLLTOOL-NOTFOUND
+#14 0.836 
+#14 0.836 //Flags used by the linker during all build types.
+#14 0.836 CMAKE_EXE_LINKER_FLAGS:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during DEBUG builds.
+#14 0.836 CMAKE_EXE_LINKER_FLAGS_DEBUG:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during MINSIZEREL builds.
+#14 0.836 CMAKE_EXE_LINKER_FLAGS_MINSIZEREL:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during RELEASE builds.
+#14 0.836 CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during RELWITHDEBINFO builds.
+#14 0.836 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+#14 0.836 
+#14 0.836 //Enable/Disable output of compile commands during generation.
+#14 0.836 CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
+#14 0.836 
+#14 0.836 //Install path prefix, prepended onto install directories.
+#14 0.836 CMAKE_INSTALL_PREFIX:PATH=/usr/local
+#14 0.836 
+#14 0.836 //Path to a program.
+#14 0.836 CMAKE_LINKER:FILEPATH=/usr/bin/ld
+#14 0.836 
+#14 0.836 //Path to a program.
+#14 0.836 CMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/gmake
+#14 0.836 
+#14 0.836 //Flags used by the linker during the creation of modules during
+#14 0.836 // all build types.
+#14 0.836 CMAKE_MODULE_LINKER_FLAGS:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during the creation of modules during
+#14 0.836 // DEBUG builds.
+#14 0.836 CMAKE_MODULE_LINKER_FLAGS_DEBUG:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during the creation of modules during
+#14 0.836 // MINSIZEREL builds.
+#14 0.836 CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during the creation of modules during
+#14 0.836 // RELEASE builds.
+#14 0.836 CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during the creation of modules during
+#14 0.836 // RELWITHDEBINFO builds.
+#14 0.836 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+#14 0.836 
+#14 0.836 //Path to a program.
+#14 0.836 CMAKE_NM:FILEPATH=/usr/bin/nm
+#14 0.836 
+#14 0.836 //Path to a program.
+#14 0.836 CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
+#14 0.836 
+#14 0.836 //Path to a program.
+#14 0.836 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
+#14 0.836 
+#14 0.836 //Value Computed by CMake
+#14 0.836 CMAKE_PROJECT_DESCRIPTION:STATIC=
+#14 0.836 
+#14 0.836 //Value Computed by CMake
+#14 0.836 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
+#14 0.836 
+#14 0.836 //Value Computed by CMake
+#14 0.836 CMAKE_PROJECT_NAME:STATIC=GreediFi
+#14 0.836 
+#14 0.836 //Value Computed by CMake
+#14 0.836 CMAKE_PROJECT_VERSION:STATIC=0.1.0
+#14 0.836 
+#14 0.836 //Value Computed by CMake
+#14 0.836 CMAKE_PROJECT_VERSION_MAJOR:STATIC=0
+#14 0.836 
+#14 0.836 //Value Computed by CMake
+#14 0.836 CMAKE_PROJECT_VERSION_MINOR:STATIC=1
+#14 0.836 
+#14 0.836 //Value Computed by CMake
+#14 0.836 CMAKE_PROJECT_VERSION_PATCH:STATIC=0
+#14 0.836 
+#14 0.836 //Value Computed by CMake
+#14 0.836 CMAKE_PROJECT_VERSION_TWEAK:STATIC=
+#14 0.836 
+#14 0.836 //Path to a program.
+#14 0.836 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
+#14 0.836 
+#14 0.836 //Path to a program.
+#14 0.836 CMAKE_READELF:FILEPATH=/usr/bin/readelf
+#14 0.836 
+#14 0.836 //Flags used by the linker during the creation of shared libraries
+#14 0.836 // during all build types.
+#14 0.836 CMAKE_SHARED_LINKER_FLAGS:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during the creation of shared libraries
+#14 0.836 // during DEBUG builds.
+#14 0.836 CMAKE_SHARED_LINKER_FLAGS_DEBUG:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during the creation of shared libraries
+#14 0.836 // during MINSIZEREL builds.
+#14 0.836 CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during the creation of shared libraries
+#14 0.836 // during RELEASE builds.
+#14 0.836 CMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during the creation of shared libraries
+#14 0.836 // during RELWITHDEBINFO builds.
+#14 0.836 CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+#14 0.836 
+#14 0.836 //If set, runtime paths are not added when installing shared libraries,
+#14 0.836 // but are added when building.
+#14 0.836 CMAKE_SKIP_INSTALL_RPATH:BOOL=NO
+#14 0.836 
+#14 0.836 //If set, runtime paths are not added when using shared libraries.
+#14 0.836 CMAKE_SKIP_RPATH:BOOL=NO
+#14 0.836 
+#14 0.836 //Flags used by the linker during the creation of static libraries
+#14 0.836 // during all build types.
+#14 0.836 CMAKE_STATIC_LINKER_FLAGS:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during the creation of static libraries
+#14 0.836 // during DEBUG builds.
+#14 0.836 CMAKE_STATIC_LINKER_FLAGS_DEBUG:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during the creation of static libraries
+#14 0.836 // during MINSIZEREL builds.
+#14 0.836 CMAKE_STATIC_LINKER_FLAGS_MINSIZEREL:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during the creation of static libraries
+#14 0.836 // during RELEASE builds.
+#14 0.836 CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
+#14 0.836 
+#14 0.836 //Flags used by the linker during the creation of static libraries
+#14 0.836 // during RELWITHDEBINFO builds.
+#14 0.836 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+#14 0.836 
+#14 0.836 //Path to a program.
+#14 0.836 CMAKE_STRIP:FILEPATH=/usr/bin/strip
+#14 0.836 
+#14 0.836 //If this value is on, makefiles will be generated without the
+#14 0.836 // .SILENT directive, and all commands will be echoed to the console
+#14 0.836 // during the make.  This is useful for debugging only. With Visual
+#14 0.836 // Studio IDE projects all commands are done without /nologo.
+#14 0.836 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
+#14 0.836 
+#14 0.836 //The directory containing a CMake configuration file for CURL.
+#14 0.836 CURL_DIR:PATH=CURL_DIR-NOTFOUND
+#14 0.836 
+#14 0.836 //Path to a file.
+#14 0.836 CURL_INCLUDE_DIR:PATH=/usr/include/x86_64-linux-gnu
+#14 0.836 
+#14 0.836 //Path to a library.
+#14 0.836 CURL_LIBRARY_DEBUG:FILEPATH=CURL_LIBRARY_DEBUG-NOTFOUND
+#14 0.836 
+#14 0.836 //Path to a library.
+#14 0.836 CURL_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libcurl.so
+#14 0.836 
+#14 0.836 //Value Computed by CMake
+#14 0.836 GreediFi_BINARY_DIR:STATIC=/app/build
+#14 0.836 
+#14 0.836 //Value Computed by CMake
+#14 0.836 GreediFi_SOURCE_DIR:STATIC=/app
+#14 0.836 
+#14 0.836 //Path to a library.
+#14 0.836 OPENSSL_CRYPTO_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcrypto.so
+#14 0.836 
+#14 0.836 //Path to a file.
+#14 0.836 OPENSSL_INCLUDE_DIR:PATH=/usr/include
+#14 0.836 
+#14 0.836 //Path to a library.
+#14 0.836 OPENSSL_SSL_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libssl.so
+#14 0.836 
+#14 0.836 //pkg-config executable
+#14 0.836 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
+#14 0.836 
+#14 0.836 //The directory containing a CMake configuration file for boost_headers.
+#14 0.836 boost_headers_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_headers-1.74.0
+#14 0.836 
+#14 0.836 //The directory containing a CMake configuration file for boost_system.
+#14 0.836 boost_system_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_system-1.74.0
+#14 0.836 
+#14 0.836 //The directory containing a CMake configuration file for nlohmann_json.
+#14 0.836 nlohmann_json_DIR:PATH=/usr/lib/cmake/nlohmann_json
+#14 0.836 
+#14 0.836 //Path to a library.
+#14 0.836 pkgcfg_lib_LIBWEBSOCKETS_websockets:FILEPATH=/usr/lib/x86_64-linux-gnu/libwebsockets.so
+#14 0.836 
+#14 0.836 //Path to a library.
+#14 0.836 pkgcfg_lib_PC_CURL_curl:FILEPATH=/usr/lib/x86_64-linux-gnu/libcurl.so
+#14 0.836 
+#14 0.836 //Path to a library.
+#14 0.836 pkgcfg_lib__OPENSSL_crypto:FILEPATH=/usr/lib/x86_64-linux-gnu/libcrypto.so
+#14 0.836 
+#14 0.836 //Path to a library.
+#14 0.836 pkgcfg_lib__OPENSSL_ssl:FILEPATH=/usr/lib/x86_64-linux-gnu/libssl.so
+#14 0.836 
+#14 0.836 
+#14 0.836 ########################
+#14 0.836 # INTERNAL cache entries
+#14 0.836 ########################
+#14 0.836 
+#14 0.836 //ADVANCED property for variable: Boost_DIR
+#14 0.836 Boost_DIR-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_ADDR2LINE
+#14 0.836 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_AR
+#14 0.836 CMAKE_AR-ADVANCED:INTERNAL=1
+#14 0.836 //This is the directory where this CMakeCache.txt was created
+#14 0.836 CMAKE_CACHEFILE_DIR:INTERNAL=/app/build
+#14 0.836 //Major version of cmake used to create the current loaded cache
+#14 0.836 CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
+#14 0.836 //Minor version of cmake used to create the current loaded cache
+#14 0.836 CMAKE_CACHE_MINOR_VERSION:INTERNAL=18
+#14 0.836 //Patch version of cmake used to create the current loaded cache
+#14 0.836 CMAKE_CACHE_PATCH_VERSION:INTERNAL=4
+#14 0.836 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
+#14 0.836 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
+#14 0.836 //Path to CMake executable.
+#14 0.836 CMAKE_COMMAND:INTERNAL=/usr/bin/cmake
+#14 0.836 //Path to cpack program executable.
+#14 0.836 CMAKE_CPACK_COMMAND:INTERNAL=/usr/bin/cpack
+#14 0.836 //Path to ctest program executable.
+#14 0.836 CMAKE_CTEST_COMMAND:INTERNAL=/usr/bin/ctest
+#14 0.836 //ADVANCED property for variable: CMAKE_CXX_COMPILER
+#14 0.836 CMAKE_CXX_COMPILER-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_CXX_COMPILER_AR
+#14 0.836 CMAKE_CXX_COMPILER_AR-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_CXX_COMPILER_RANLIB
+#14 0.836 CMAKE_CXX_COMPILER_RANLIB-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_CXX_FLAGS
+#14 0.836 CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_CXX_FLAGS_DEBUG
+#14 0.836 CMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_CXX_FLAGS_MINSIZEREL
+#14 0.836 CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_CXX_FLAGS_RELEASE
+#14 0.836 CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_CXX_FLAGS_RELWITHDEBINFO
+#14 0.836 CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_C_COMPILER
+#14 0.836 CMAKE_C_COMPILER-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_C_COMPILER_AR
+#14 0.836 CMAKE_C_COMPILER_AR-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_C_COMPILER_RANLIB
+#14 0.836 CMAKE_C_COMPILER_RANLIB-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_C_FLAGS
+#14 0.836 CMAKE_C_FLAGS-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_C_FLAGS_DEBUG
+#14 0.836 CMAKE_C_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_C_FLAGS_MINSIZEREL
+#14 0.836 CMAKE_C_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_C_FLAGS_RELEASE
+#14 0.836 CMAKE_C_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_C_FLAGS_RELWITHDEBINFO
+#14 0.836 CMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_DLLTOOL
+#14 0.836 CMAKE_DLLTOOL-ADVANCED:INTERNAL=1
+#14 0.836 //Executable file format
+#14 0.836 CMAKE_EXECUTABLE_FORMAT:INTERNAL=ELF
+#14 0.836 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS
+#14 0.836 CMAKE_EXE_LINKER_FLAGS-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_DEBUG
+#14 0.836 CMAKE_EXE_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_MINSIZEREL
+#14 0.836 CMAKE_EXE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELEASE
+#14 0.836 CMAKE_EXE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO
+#14 0.836 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_EXPORT_COMPILE_COMMANDS
+#14 0.836 CMAKE_EXPORT_COMPILE_COMMANDS-ADVANCED:INTERNAL=1
+#14 0.836 //Name of external makefile project generator.
+#14 0.836 CMAKE_EXTRA_GENERATOR:INTERNAL=
+#14 0.836 //Name of generator.
+#14 0.836 CMAKE_GENERATOR:INTERNAL=Unix Makefiles
+#14 0.836 //Generator instance identifier.
+#14 0.836 CMAKE_GENERATOR_INSTANCE:INTERNAL=
+#14 0.836 //Name of generator platform.
+#14 0.836 CMAKE_GENERATOR_PLATFORM:INTERNAL=
+#14 0.836 //Name of generator toolset.
+#14 0.836 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+#14 0.836 //Source directory with the top level CMakeLists.txt file for this
+#14 0.836 // project
+#14 0.836 CMAKE_HOME_DIRECTORY:INTERNAL=/app
+#14 0.836 //Install .so files without execute permission.
+#14 0.836 CMAKE_INSTALL_SO_NO_EXE:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_LINKER
+#14 0.836 CMAKE_LINKER-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_MAKE_PROGRAM
+#14 0.836 CMAKE_MAKE_PROGRAM-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS
+#14 0.836 CMAKE_MODULE_LINKER_FLAGS-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_DEBUG
+#14 0.836 CMAKE_MODULE_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL
+#14 0.836 CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELEASE
+#14 0.836 CMAKE_MODULE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO
+#14 0.836 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_NM
+#14 0.836 CMAKE_NM-ADVANCED:INTERNAL=1
+#14 0.836 //number of local generators
+#14 0.836 CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_OBJCOPY
+#14 0.836 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_OBJDUMP
+#14 0.836 CMAKE_OBJDUMP-ADVANCED:INTERNAL=1
+#14 0.836 //Platform information initialized
+#14 0.836 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_RANLIB
+#14 0.836 CMAKE_RANLIB-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_READELF
+#14 0.836 CMAKE_READELF-ADVANCED:INTERNAL=1
+#14 0.836 //Path to CMake installation.
+#14 0.836 CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.18
+#14 0.836 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
+#14 0.836 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG
+#14 0.836 CMAKE_SHARED_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL
+#14 0.836 CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_RELEASE
+#14 0.836 CMAKE_SHARED_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO
+#14 0.836 CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_SKIP_INSTALL_RPATH
+#14 0.836 CMAKE_SKIP_INSTALL_RPATH-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_SKIP_RPATH
+#14 0.836 CMAKE_SKIP_RPATH-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS
+#14 0.836 CMAKE_STATIC_LINKER_FLAGS-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_DEBUG
+#14 0.836 CMAKE_STATIC_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_MINSIZEREL
+#14 0.836 CMAKE_STATIC_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_RELEASE
+#14 0.836 CMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO
+#14 0.836 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CMAKE_STRIP
+#14 0.836 CMAKE_STRIP-ADVANCED:INTERNAL=1
+#14 0.836 //uname command
+#14 0.836 CMAKE_UNAME:INTERNAL=/bin/uname
+#14 0.836 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
+#14 0.836 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CURL_DIR
+#14 0.836 CURL_DIR-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CURL_INCLUDE_DIR
+#14 0.836 CURL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CURL_LIBRARY_DEBUG
+#14 0.836 CURL_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: CURL_LIBRARY_RELEASE
+#14 0.836 CURL_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+#14 0.836 //Details about finding Boost
+#14 0.836 FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake][cfound components: system ][v1.74.0()]
+#14 0.836 //Details about finding CURL
+#14 0.836 FIND_PACKAGE_MESSAGE_DETAILS_CURL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libcurl.so][/usr/include/x86_64-linux-gnu][c ][v7.74.0()]
+#14 0.836 //Details about finding OpenSSL
+#14 0.836 FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libcrypto.so][/usr/include][c ][v1.1.1w()]
+#14 0.836 //Details about finding PkgConfig
+#14 0.836 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.2()]
+#14 0.836 //Details about finding nlohmann_json
+#14 0.836 FIND_PACKAGE_MESSAGE_DETAILS_nlohmann_json:INTERNAL=[/usr/lib/cmake/nlohmann_json/nlohmann_jsonConfig.cmake][v3.9.1(3.2.0)]
+#14 0.836 LIBWEBSOCKETS_CFLAGS:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_CFLAGS_I:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_CFLAGS_OTHER:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_FOUND:INTERNAL=1
+#14 0.836 LIBWEBSOCKETS_INCLUDEDIR:INTERNAL=/usr/include
+#14 0.836 LIBWEBSOCKETS_INCLUDE_DIRS:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_LDFLAGS:INTERNAL=-lwebsockets
+#14 0.836 LIBWEBSOCKETS_LDFLAGS_OTHER:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+#14 0.836 LIBWEBSOCKETS_LIBRARIES:INTERNAL=websockets
+#14 0.836 LIBWEBSOCKETS_LIBRARY_DIRS:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_LIBS:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_LIBS_L:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_LIBS_OTHER:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_LIBS_PATHS:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_MODULE_NAME:INTERNAL=libwebsockets
+#14 0.836 LIBWEBSOCKETS_PREFIX:INTERNAL=/usr
+#14 0.836 LIBWEBSOCKETS_STATIC_CFLAGS:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_STATIC_CFLAGS_I:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_STATIC_CFLAGS_OTHER:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_STATIC_INCLUDE_DIRS:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_STATIC_LDFLAGS:INTERNAL=-lwebsockets
+#14 0.836 LIBWEBSOCKETS_STATIC_LDFLAGS_OTHER:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_STATIC_LIBDIR:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_STATIC_LIBRARIES:INTERNAL=websockets
+#14 0.836 LIBWEBSOCKETS_STATIC_LIBRARY_DIRS:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_STATIC_LIBS:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_STATIC_LIBS_L:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_STATIC_LIBS_OTHER:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_STATIC_LIBS_PATHS:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_VERSION:INTERNAL=4.0.20
+#14 0.836 LIBWEBSOCKETS_libwebsockets_INCLUDEDIR:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_libwebsockets_LIBDIR:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_libwebsockets_PREFIX:INTERNAL=
+#14 0.836 LIBWEBSOCKETS_libwebsockets_VERSION:INTERNAL=
+#14 0.836 //ADVANCED property for variable: OPENSSL_CRYPTO_LIBRARY
+#14 0.836 OPENSSL_CRYPTO_LIBRARY-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: OPENSSL_INCLUDE_DIR
+#14 0.836 OPENSSL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: OPENSSL_SSL_LIBRARY
+#14 0.836 OPENSSL_SSL_LIBRARY-ADVANCED:INTERNAL=1
+#14 0.836 PC_CURL_CFLAGS:INTERNAL=-I/usr/include/x86_64-linux-gnu
+#14 0.836 PC_CURL_CFLAGS_I:INTERNAL=
+#14 0.836 PC_CURL_CFLAGS_OTHER:INTERNAL=
+#14 0.836 PC_CURL_FOUND:INTERNAL=1
+#14 0.836 PC_CURL_INCLUDEDIR:INTERNAL=/usr/include/x86_64-linux-gnu
+#14 0.836 PC_CURL_INCLUDE_DIRS:INTERNAL=/usr/include/x86_64-linux-gnu
+#14 0.836 PC_CURL_LDFLAGS:INTERNAL=-lcurl
+#14 0.836 PC_CURL_LDFLAGS_OTHER:INTERNAL=
+#14 0.836 PC_CURL_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+#14 0.836 PC_CURL_LIBRARIES:INTERNAL=curl
+#14 0.836 PC_CURL_LIBRARY_DIRS:INTERNAL=
+#14 0.836 PC_CURL_LIBS:INTERNAL=
+#14 0.836 PC_CURL_LIBS_L:INTERNAL=
+#14 0.836 PC_CURL_LIBS_OTHER:INTERNAL=
+#14 0.836 PC_CURL_LIBS_PATHS:INTERNAL=
+#14 0.836 PC_CURL_MODULE_NAME:INTERNAL=libcurl
+#14 0.836 PC_CURL_PREFIX:INTERNAL=/usr
+#14 0.836 PC_CURL_STATIC_CFLAGS:INTERNAL=-I/usr/include/x86_64-linux-gnu
+#14 0.836 PC_CURL_STATIC_CFLAGS_I:INTERNAL=
+#14 0.836 PC_CURL_STATIC_CFLAGS_OTHER:INTERNAL=
+#14 0.836 PC_CURL_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/x86_64-linux-gnu
+#14 0.836 PC_CURL_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu/mit-krb5;-lcurl;-lnghttp2;-lidn2;-lrtmp;-lssh2;-lpsl;-lssl;-lcrypto;-lssl;-lcrypto;-Wl,-z,relro;-lgssapi_krb5;-lkrb5;-lk5crypto;-lcom_err;-llber;-lldap;-llber;-lbrotlidec;-lz;-pthread
+#14 0.836 PC_CURL_STATIC_LDFLAGS_OTHER:INTERNAL=-Wl,-z,relro;-pthread
+#14 0.836 PC_CURL_STATIC_LIBDIR:INTERNAL=
+#14 0.836 PC_CURL_STATIC_LIBRARIES:INTERNAL=curl;nghttp2;idn2;rtmp;ssh2;psl;ssl;crypto;ssl;crypto;gssapi_krb5;krb5;k5crypto;com_err;lber;ldap;lber;brotlidec;z
+#14 0.836 PC_CURL_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu/mit-krb5
+#14 0.836 PC_CURL_STATIC_LIBS:INTERNAL=
+#14 0.836 PC_CURL_STATIC_LIBS_L:INTERNAL=
+#14 0.836 PC_CURL_STATIC_LIBS_OTHER:INTERNAL=
+#14 0.836 PC_CURL_STATIC_LIBS_PATHS:INTERNAL=
+#14 0.836 PC_CURL_VERSION:INTERNAL=7.74.0
+#14 0.836 PC_CURL_libcurl_INCLUDEDIR:INTERNAL=
+#14 0.836 PC_CURL_libcurl_LIBDIR:INTERNAL=
+#14 0.836 PC_CURL_libcurl_PREFIX:INTERNAL=
+#14 0.836 PC_CURL_libcurl_VERSION:INTERNAL=
+#14 0.836 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+#14 0.836 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+#14 0.836 _OPENSSL_CFLAGS:INTERNAL=
+#14 0.836 _OPENSSL_CFLAGS_I:INTERNAL=
+#14 0.836 _OPENSSL_CFLAGS_OTHER:INTERNAL=
+#14 0.836 _OPENSSL_FOUND:INTERNAL=1
+#14 0.836 _OPENSSL_INCLUDEDIR:INTERNAL=/usr/include
+#14 0.836 _OPENSSL_INCLUDE_DIRS:INTERNAL=
+#14 0.836 _OPENSSL_LDFLAGS:INTERNAL=-lssl;-lcrypto
+#14 0.836 _OPENSSL_LDFLAGS_OTHER:INTERNAL=
+#14 0.836 _OPENSSL_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+#14 0.836 _OPENSSL_LIBRARIES:INTERNAL=ssl;crypto
+#14 0.836 _OPENSSL_LIBRARY_DIRS:INTERNAL=
+#14 0.836 _OPENSSL_LIBS:INTERNAL=
+#14 0.836 _OPENSSL_LIBS_L:INTERNAL=
+#14 0.836 _OPENSSL_LIBS_OTHER:INTERNAL=
+#14 0.836 _OPENSSL_LIBS_PATHS:INTERNAL=
+#14 0.836 _OPENSSL_MODULE_NAME:INTERNAL=openssl
+#14 0.836 _OPENSSL_PREFIX:INTERNAL=/usr
+#14 0.836 _OPENSSL_STATIC_CFLAGS:INTERNAL=
+#14 0.836 _OPENSSL_STATIC_CFLAGS_I:INTERNAL=
+#14 0.836 _OPENSSL_STATIC_CFLAGS_OTHER:INTERNAL=
+#14 0.836 _OPENSSL_STATIC_INCLUDE_DIRS:INTERNAL=
+#14 0.836 _OPENSSL_STATIC_LDFLAGS:INTERNAL=-lssl;-lcrypto;-ldl;-pthread
+#14 0.836 _OPENSSL_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread
+#14 0.836 _OPENSSL_STATIC_LIBDIR:INTERNAL=
+#14 0.836 _OPENSSL_STATIC_LIBRARIES:INTERNAL=ssl;crypto;dl
+#14 0.836 _OPENSSL_STATIC_LIBRARY_DIRS:INTERNAL=
+#14 0.836 _OPENSSL_STATIC_LIBS:INTERNAL=
+#14 0.836 _OPENSSL_STATIC_LIBS_L:INTERNAL=
+#14 0.836 _OPENSSL_STATIC_LIBS_OTHER:INTERNAL=
+#14 0.836 _OPENSSL_STATIC_LIBS_PATHS:INTERNAL=
+#14 0.836 _OPENSSL_VERSION:INTERNAL=1.1.1w
+#14 0.836 _OPENSSL_openssl_INCLUDEDIR:INTERNAL=
+#14 0.836 _OPENSSL_openssl_LIBDIR:INTERNAL=
+#14 0.836 _OPENSSL_openssl_PREFIX:INTERNAL=
+#14 0.836 _OPENSSL_openssl_VERSION:INTERNAL=
+#14 0.836 __pkg_config_arguments_LIBWEBSOCKETS:INTERNAL=REQUIRED;libwebsockets
+#14 0.836 __pkg_config_arguments_PC_CURL:INTERNAL=QUIET;libcurl
+#14 0.836 __pkg_config_arguments__OPENSSL:INTERNAL=QUIET;openssl
+#14 0.836 __pkg_config_checked_LIBWEBSOCKETS:INTERNAL=1
+#14 0.836 __pkg_config_checked_PC_CURL:INTERNAL=1
+#14 0.836 __pkg_config_checked__OPENSSL:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: boost_headers_DIR
+#14 0.836 boost_headers_DIR-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: boost_system_DIR
+#14 0.836 boost_system_DIR-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: pkgcfg_lib_LIBWEBSOCKETS_websockets
+#14 0.836 pkgcfg_lib_LIBWEBSOCKETS_websockets-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: pkgcfg_lib_PC_CURL_curl
+#14 0.836 pkgcfg_lib_PC_CURL_curl-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: pkgcfg_lib__OPENSSL_crypto
+#14 0.836 pkgcfg_lib__OPENSSL_crypto-ADVANCED:INTERNAL=1
+#14 0.836 //ADVANCED property for variable: pkgcfg_lib__OPENSSL_ssl
+#14 0.836 pkgcfg_lib__OPENSSL_ssl-ADVANCED:INTERNAL=1
+#14 0.836 prefix_result:INTERNAL=/usr/lib/x86_64-linux-gnu
+#14 0.836 
+#14 0.836 Directory contents:
+#14 0.837 total 76
+#14 0.837 drwxr-xr-x 1 root root  4096 May 17 07:01 .
+#14 0.837 drwxr-xr-x 1 root root  4096 May 17 07:01 ..
+#14 0.837 -rw-rw-r-- 1 root root  1700 May 17 06:06 CMakeLists.txt
+#14 0.837 -rw-rw-r-- 1 root root  1733 May 17 06:03 Dockerfile
+#14 0.837 -rw-r--r-- 1 root root 11993 May 16 15:59 MarketDataFeed.cpp
+#14 0.837 -rw-r--r-- 1 root root  2467 May 16 15:58 MarketDataFeed.h
+#14 0.837 -rw-rw-r-- 1 root root  8232 May 16 08:08 SampleStrategies.h
+#14 0.837 -rw-rw-r-- 1 root root  4896 May 16 08:08 StrategyEngine.cpp
+#14 0.837 -rw-rw-r-- 1 root root  3099 May 16 08:08 StrategyEngine.h
+#14 0.837 drwxr-xr-x 3 root root  4096 May 17 07:01 build
+#14 0.837 -rw-rw-r-- 1 root root   312 May 17 06:59 build.log
+#14 0.837 -rw-rw-r-- 1 root root  3405 May 16 08:08 main.cpp
+#14 0.837 -rw-r--r-- 1 root root  5034 May 16 16:00 main_market_data.cpp
+#14 ERROR: process "/bin/sh -c mkdir -p build &&     cd build &&     cmake .. &&     cmake --build . --verbose ||     (echo \"Build failed!\" &&      echo \"CMakeCache.txt contents:\" &&      cat CMakeCache.txt &&      echo \"Directory contents:\" &&      ls -la .. &&      exit 1)" did not complete successfully: exit code: 1
+------
+ > [builder 7/7] RUN mkdir -p build &&     cd build &&     cmake .. &&     cmake --build . --verbose ||     (echo "Build failed!" &&      echo "CMakeCache.txt contents:" &&      cat CMakeCache.txt &&      echo "Directory contents:" &&      ls -la .. &&      exit 1):
+0.837 -rw-rw-r-- 1 root root  1733 May 17 06:03 Dockerfile
+0.837 -rw-r--r-- 1 root root 11993 May 16 15:59 MarketDataFeed.cpp
+0.837 -rw-r--r-- 1 root root  2467 May 16 15:58 MarketDataFeed.h
+0.837 -rw-rw-r-- 1 root root  8232 May 16 08:08 SampleStrategies.h
+0.837 -rw-rw-r-- 1 root root  4896 May 16 08:08 StrategyEngine.cpp
+0.837 -rw-rw-r-- 1 root root  3099 May 16 08:08 StrategyEngine.h
+0.837 drwxr-xr-x 3 root root  4096 May 17 07:01 build
+0.837 -rw-rw-r-- 1 root root   312 May 17 06:59 build.log
+0.837 -rw-rw-r-- 1 root root  3405 May 16 08:08 main.cpp
+0.837 -rw-r--r-- 1 root root  5034 May 16 16:00 main_market_data.cpp
+------
+Dockerfile:40
+--------------------
+  39 |     # Build with better error handling
+  40 | >>> RUN mkdir -p build && \
+  41 | >>>     cd build && \
+  42 | >>>     cmake .. && \
+  43 | >>>     cmake --build . --verbose || \
+  44 | >>>     (echo "Build failed!" && \
+  45 | >>>      echo "CMakeCache.txt contents:" && \
+  46 | >>>      cat CMakeCache.txt && \
+  47 | >>>      echo "Directory contents:" && \
+  48 | >>>      ls -la .. && \
+  49 | >>>      exit 1)
+  50 |     
+--------------------
+ERROR: failed to solve: process "/bin/sh -c mkdir -p build &&     cd build &&     cmake .. &&     cmake --build . --verbose ||     (echo \"Build failed!\" &&      echo \"CMakeCache.txt contents:\" &&      cat CMakeCache.txt &&      echo \"Directory contents:\" &&      ls -la .. &&      exit 1)" did not complete successfully: exit code: 1

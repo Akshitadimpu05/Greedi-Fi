@@ -83,7 +83,9 @@ docker-compose.override.yml
 .env
 
 # Misc
-*.log
+# Temporarily allowing build.log for debugging
+# *.log
+!build.log
 .cache/
 tmp/
 temp/

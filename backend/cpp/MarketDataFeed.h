@@ -10,9 +10,8 @@
 #include <thread>
 #include <atomic>
 
-// Forward declaration
-struct lws;
-struct lws_context;
+// Include libwebsockets headers
+#include <libwebsockets.h>
 
 class MarketDataFeed {
 public:

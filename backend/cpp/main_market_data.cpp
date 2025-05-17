@@ -5,7 +5,7 @@
 #include <thread>
 #include <chrono>
 #include <cstring>
-#include <redis/client.h>
+#include <sw/redis++/redis++.h>
 #include <nlohmann/json.hpp>
 
 using json = nlohmann::json;
@@ -96,7 +96,7 @@ int main(int argc, char* argv[]) {
     std::cout << "Using Redis at " << redis_host << ":" << redis_port << std::endl;
     
     // Initialize Redis client
-    auto redis = std::make_shared<redis::client>(redis_host + ":" + std::to_string(redis_port));
+    auto redis = std::make_shared<sw::redis::Redis>("tcp://" + redis_host + ":" + std::to_string(redis_port));
     
     try {
         // Initialize market data feed
@@ -109,7 +109,7 @@ int main(int argc, char* argv[]) {
             std::string message = j.dump();
             
             // Publish to orderbook channel
-            redis->publish("orderbook:" + symbol, message);
+            redis->publish(std::string("orderbook:") + symbol, message);
         });
         
         feed.setTradeCallback([&redis, &symbol](const MarketDataFeed::Trade& trade) {
@@ -118,7 +118,7 @@ int main(int argc, char* argv[]) {
             std::string message = j.dump();
             
             // Publish to trades channel
-            redis->publish("trades:" + symbol, message);
+            redis->publish(std::string("trades:") + symbol, message);
         });
         
         // Connect to exchange
@@ -136,7 +136,7 @@ int main(int argc, char* argv[]) {
             // Periodically publish the full order book for new clients
             auto book = feed.getOrderBook();
             json j = orderBookToJson(book);
-            redis->set("orderbook_snapshot:" + symbol, j.dump());
+            redis->set(std::string("orderbook_snapshot:") + symbol, j.dump());
         }
         
         // Disconnect from exchange

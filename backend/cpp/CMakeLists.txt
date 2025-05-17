@@ -55,6 +55,8 @@ set(COMMON_INCLUDES
     ${CURL_INCLUDE_DIRS}
     ${Boost_INCLUDE_DIRS}
     ${LIBWEBSOCKETS_INCLUDE_DIRS}
+    /usr/local/include
+    /usr/local/include/sw
 )
 
 # Common link libraries
