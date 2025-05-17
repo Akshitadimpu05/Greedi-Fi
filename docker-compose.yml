@@ -1,0 +1,90 @@
+version: '3.8'
+
+services:
+  # Redis for pub/sub and data sharing
+  redis:
+    image: redis:7.0-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - greedi-fi-network
+    restart: unless-stopped
+    command: redis-server --save 60 1 --loglevel warning
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # FastAPI Backend Service
+  api:
+    build: ./backend/api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/api:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - greedi-fi-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+  # C++ Strategy Engine
+  strategy-engine:
+    build: ./backend/cpp
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - greedi-fi-network
+    restart: unless-stopped
+    # In a production environment, you would connect the C++ engine with the API
+    # through appropriate IPC mechanisms like Redis, ZeroMQ, or gRPC
+
+  # C++ Market Data Feed
+  market-data-feed:
+    build:
+      context: ./backend/cpp
+      dockerfile: Dockerfile
+    command: ./market_data_feed --redis-host redis --redis-port 6379 --symbol BTC-PERPETUAL
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - greedi-fi-network
+    restart: unless-stopped
+
+  # React Frontend Service
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    networks:
+      - greedi-fi-network
+    restart: unless-stopped
+
+networks:
+  greedi-fi-network:
+    driver: bridge
+
+volumes:
+  redis-data:
