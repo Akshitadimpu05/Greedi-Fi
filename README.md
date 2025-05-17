@@ -71,3 +71,55 @@ A sleek web frontend integrates with the backend to provide real-time UI for tra
 - Valuable for learning high-frequency trading concepts, API integration, and full-stack development.
 - Enables experimentation with algorithmic strategies using real market data in a safe test environment.
 - Designed for potential deployment to production with exchange API key switch.
+
+---
+
+## 🚦 Getting Started
+
+### Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed
+- Git
+- Terminal access
+
+### Clone the Repository
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/Greedi-Fi.git
+
+# Navigate to the project directory
+cd Greedi-Fi
+```
+
+### Build and Run the Application
+
+```bash
+# Build all containers (this may take a few minutes the first time)
+docker compose build
+
+# Run the application
+docker compose up
+```
+
+### Access the Application
+
+Once the containers are running, you can access the different components:
+
+- **Frontend**: http://localhost:3000
+- **API Documentation**: http://localhost:8000/docs
+- **API Health Check**: http://localhost:8000/health
+
+### Stopping the Application
+
+```bash
+# Press Ctrl+C in the terminal where docker compose up is running
+# or run this in a new terminal
+docker compose down
+```
+
+### Common Issues and Solutions
+
+- **Redis Connection Error**: Make sure the redis service is up and running
+- **Missing Libraries**: The Docker setup should handle all dependencies
+- **Port Conflicts**: If ports 3000, 6379, or 8000 are in use, edit the `docker-compose.yml` file to remap them
