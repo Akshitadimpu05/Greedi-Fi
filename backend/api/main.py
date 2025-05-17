@@ -88,7 +88,17 @@ available_templates = {
     }
 }
 
-# Redis connection pool
+# Redis connection setup
+def get_redis_connection_pool():
+    """Get or create Redis connection pool"""
+    global redis_pool
+    if redis_pool is None:
+        redis_host = os.environ.get('REDIS_HOST', 'redis')
+        redis_port = int(os.environ.get('REDIS_PORT', 6379))
+        redis_pool = redis.ConnectionPool(host=redis_host, port=redis_port, db=0)
+    return redis_pool
+
+# Initialize pool at module level
 redis_pool = None
 
 # WebSocket connection manager
@@ -119,11 +129,7 @@ manager = ConnectionManager()
 
 # Background task to forward Redis messages to WebSocket clients
 async def forward_redis_messages():
-    global redis_pool
-    if not redis_pool:
-        redis_pool = redis.ConnectionPool(host='redis', port=6379, db=0)
-
-    r = redis.Redis(connection_pool=redis_pool)
+    r = redis.Redis(connection_pool=get_redis_connection_pool())
     pubsub = r.pubsub()
     
     # Subscribe to all orderbook and trade channels
@@ -200,13 +206,7 @@ async def root():
 async def health_check():
     try:
         # Check if Redis is accessible
-        if not redis_pool:
-            global redis_pool
-            redis_host = os.environ.get('REDIS_HOST', 'redis')
-            redis_port = int(os.environ.get('REDIS_PORT', 6379))
-            redis_pool = redis.ConnectionPool(host=redis_host, port=redis_port, db=0)
-            
-        r = redis.Redis(connection_pool=redis_pool)
+        r = redis.Redis(connection_pool=get_redis_connection_pool())
         await r.ping()
         return {"status": "healthy", "redis": "connected"}
     except RedisError as e:
@@ -433,12 +433,11 @@ async def orderbook_ws(websocket: WebSocket, symbol: str):
         
         # Send initial snapshot if available
         try:
-            if redis_pool:
-                r = redis.Redis(connection_pool=redis_pool)
-                snapshot = await r.get(f"orderbook_snapshot:{symbol}")
-                if snapshot:
-                    await websocket.send_text(snapshot.decode('utf-8'))
-                await r.close()
+            r = redis.Redis(connection_pool=get_redis_connection_pool())
+            snapshot = await r.get(f"orderbook_snapshot:{symbol}")
+            if snapshot:
+                await websocket.send_text(snapshot.decode('utf-8'))
+            await r.close()
         except RedisError as e:
             print(f"Redis error getting initial snapshot: {e}")
         
@@ -476,13 +475,7 @@ async def get_available_symbols():
 @app.get("/api/market/orderbook/{symbol}")
 async def get_orderbook_snapshot(symbol: str):
     try:
-        if not redis_pool:
-            return JSONResponse(
-                status_code=503,
-                content={"error": "Redis connection not available"}
-            )
-            
-        r = redis.Redis(connection_pool=redis_pool)
+        r = redis.Redis(connection_pool=get_redis_connection_pool())
         snapshot = await r.get(f"orderbook_snapshot:{symbol}")
         await r.close()
         

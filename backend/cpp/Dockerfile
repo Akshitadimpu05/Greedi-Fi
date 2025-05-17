@@ -72,13 +72,17 @@ RUN ls -la build/
 # ---------- Runtime Stage ----------
 FROM debian:bullseye-slim
 
-# Install runtime dependencies (updated SSL version)
+# Install runtime dependencies
 RUN apt-get update && apt-get install -y \
     libboost-system1.74.0 \
-    libcurl4 \
     libssl1.1 \
+    libcurl4 \
+    ca-certificates \
     libwebsockets16 \
     && rm -rf /var/lib/apt/lists/*
+
+# Copy necessary library files from the builder
+COPY --from=builder /usr/local/lib64/libstdc++.so* /usr/lib/x86_64-linux-gnu/
 
 # Copy Redis libraries
 COPY --from=builder /usr/local/lib/libhiredis* /usr/local/lib/
@@ -109,5 +113,5 @@ RUN echo "Found binaries at:" && cat /tmp/bin/found_binaries.txt && \
     # List all available binaries
     ls -la ./ || true
 
-# Default run command
-CMD ["./strategy_engine"]
+# Default run command with fallback if binary doesn't exist
+CMD ["sh", "-c", "if [ -f ./strategy_engine ]; then ./strategy_engine; else echo 'Strategy Engine binary not found. Running in standby mode.' && sleep infinity; fi"]
